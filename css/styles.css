@@ -1,4 +1,5 @@
-   Global Reset
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -8,10 +9,10 @@
 body {
   font-family: "Roboto", sans-serif;
   background-color: #f1f3f6;
-  color: #2e2e2e; /* Mine Shaft */
+  color: #2e2e2e; 
 }
 
-/* Header*/
+/* --------------------------------------------Header--------------------------------------------------------------*/
 .header {
   position: fixed;          
   top: 0;
@@ -34,13 +35,13 @@ body {
   gap: 20px;
 }
 
-/*    Logo */
+/* -------------------------------------------------------Logo--------------------------------------------------------- */
 .logo img {
   height: 40px;
   cursor: pointer;
 }
 
-/*    Search Box */
+/*------------------------------------------Search Box-------------------------------------------------------------------- */
 .search-box {
   flex: 1;
   display: flex;
@@ -59,7 +60,7 @@ body {
 .search-box button {
   padding: 0 16px;
   border: none;
-  background-color: #5bc0eb; /* Viking */
+  background-color: #5bc0eb; 
   cursor: pointer;
   border-radius: 0 2px 2px 0;
 }
@@ -69,7 +70,7 @@ body {
   color: #2e2e2e;
 }
 
-/*    Cart */
+/*----------------------------------------------------Cart--------------------------------------------*/
 .cart a {
   position: relative;
   color: white;
@@ -108,7 +109,7 @@ body {
 
 .auth-text {
   font-family: "Inter", sans-serif;
-  font-weight: 600; /* SemiBold */
+  font-weight: 600; 
 }
 
 /*   Hover Effects */
@@ -127,7 +128,118 @@ body {
     display: none;
   }
 }
-/*    CATEGORY SECTION */
+/* --------------------------------------------Hamburger Menu & Side Menu-------------------------------------------------------------- */
+/* Hamburger Icon */
+.hamburger {
+  cursor: pointer;
+  color: #fff;
+  font-size: 32px;
+  margin-right: 16px;
+}
+
+/* Side Menu */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -260px;       
+  width: 260px;
+  height: 100vh;
+  background: white;
+  padding: 20px;
+  transition: 0.3s ease;
+  z-index: 2000;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+}
+
+
+/* Active state */
+.side-menu.active {
+  right: 0;          /* slide into view */
+}
+
+
+/* Category Links */
+.side-menu h3 {
+  margin-bottom: 16px;
+  color: #2874f0;
+}
+
+.side-menu a {
+  display: block;
+  padding: 10px 0;
+  text-decoration: none;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+
+.side-menu a:hover {
+  color: #2874f0;
+}
+/* CLOSE BUTTON */
+.close-btn {
+  font-size: 28px;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 16px;
+}
+
+/* MENU TITLE */
+.side-menu h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2874f0;
+  margin-bottom: 12px;
+}
+
+/* CATEGORY LINKS */
+.side-menu a {
+  display: block;
+  padding: 12px 0;
+  font-size: 14px;
+  color: #2e2e2e;
+  text-decoration: none;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.side-menu a:hover {
+  color: #2874f0;
+  font-weight: 500;
+}
+
+/* ================= OVERLAY ================= */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1500;
+  display: none;
+}
+
+.overlay.active {
+  display: block;
+}
+
+/* ================= PAGE SPACING ================= */
+body {
+  padding-top: 64px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .search-box {
+    display: none;
+  }
+
+  .auth-text {
+    display: none;
+  }
+}
+
+
+/* ------------------------------------------------CATEGORY SECTION-------------------------------------------------- */
 
 .category-section {
   background-color: #ffffff;
@@ -250,7 +362,7 @@ body {
   background: #2874f0;
 }
 
-/* ================= PRODUCT SECTION ================= */
+/* ------------ PRODUCT SECTION ------------ */
 
 .product-section {
   width: 90%;
@@ -334,7 +446,7 @@ body {
   background: #1f5ecb;
 }
 
-/* ================= RESPONSIVE ================= */
+/* ---------------- RESPONSIVE ----------------- */
 
 @media (max-width: 1024px) {
   .product-grid {

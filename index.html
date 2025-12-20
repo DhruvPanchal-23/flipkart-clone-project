@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Flipkart Clone - Online Shopping</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -24,6 +24,7 @@
                 <span class="material-icons">search</span>
               </button>
             </div>
+
             <!--cart-icon--->
             <div class="cart">
                 <a href="cart.html">
@@ -31,6 +32,7 @@
                     <span class="cart-count">0</span>
                 </a>
             </div>
+
             <!---login-&-signup-button---> 
             <div class="login-signup">
                 <a href="login.html" title="Login / Signup"></a>
@@ -38,8 +40,28 @@
                 <span class="auth-text">Login</span>
                 </a>
             </div>
-        </div>
-    </header><br><br><br><br>
+
+            <!--hamdurger-menu-->
+            <div class="hamburger" id ="hamburger">
+                <span class="material-icons">menu</span>
+            </div>
+            <div class="side-menu" id="sideMenu">
+               <span class="close-btn" onclick="toggleMenu()">×</span>
+  <h3>Categories</h3>
+  <a href="#" data-category="all">All</a>
+  <a href="#" data-category="mobiles">Mobiles & Tablets</a>
+  <a href="#" data-category="sports">Sports</a>
+  <a href="#" data-category="fashion">Fashion</a>
+  <a href="#" data-category="tv">TV & Appliances</a>
+  <a href="#" data-category="home">Home & Furniture</a>
+  <a href="#" data-category="beauty">Beauty</a>
+  <a href="#" data-category="grocery">Grocery</a>
+  <a href="#" data-category="electronic">Electronics</a>
+  <a href="#" data-category="toys">Toys</a>
+  <a href="#" data-category="laptop">Laptops</a>
+    </div>
+</div>
+    </header>
    <!--CATEGORY-SECTION -->
 <section class="category-section">
 
@@ -58,8 +80,8 @@
     </div>
 
     <!-- Sports -->
-    <div class="category-item" data-category="laptops">
-      <img src="assets/images/sports1.jpg" alt="Laptops">
+    <div class="category-item" data-category="sports">
+      <img src="assets/images/sports1.jpg" alt="Sports">
       <span>Sports</span>
     </div>
 
@@ -126,265 +148,10 @@
 </section>
 <!----PRODUCT SECTION---->
 <section class="product-section"> 
-  <h2 class="section-title">Featured Products</h2>
-
+  <h2 class="section-title">Top Deals</h2>
   <div class="product-grid">
-
-    <!-- Product Card -->
-    <div class="product-card">
-      <img src="assets/images/laptop.jpg" alt="Product">
-      <h3 class="product-name">ASUS Vivobook S16</h3>
-      <div class="product-rating">⭐4.4</div>
-      <div class="product-price">₹79,999</div>
-      <button class="add-cart">Add to Cart</button>
-    </div>
-    <div class="product-card">
-      <img src="assets/images/iphone5.jpeg" alt="Product">
-      <h3 class="product-name">iPhone 16 Pro</h3>
-      <div class="product-rating">⭐ Rating: 4.8</div>
-      <div class="product-price">₹1,59,999</div>
-      <button class="add-cart">Add to Cart</button>
-    </div>
-    <div class="product-card"> 
-      <img src="assets/images/tv4.jpeg" alt="Product">
-      <h3 class="product-name">LG UA82 Series 4K Ultra HD Smart TV</h3>
-      <div class="product-rating">⭐ 4.7</div>
-      <div class="product-price">₹38,490</div>
-      <button class="add-cart">Add to Cart</button>
-    </div>
-    <div class="product-card">
-      <img src="assets/images/ipad.webp" alt="Product">
-      <h3 class="product-name">iPad Pro 11th Gen</h3>
-      <div class="product-rating">⭐ 4.6</div>
-      <div class="product-price">₹33,490</div>
-      <button class="add-cart">Add to Cart</button>
-    </div>
-  <div class="product-card">
-      <img src="assets/images/dumbbell.jpeg" alt="Product">
-      <h3 class="product-name">Lifelong PVC Hex Dumbbells</h3>
-      <div class="product-rating">⭐ 4.2</div>
-      <div class="product-price">₹259</div>
-      <button class="add-cart">Add to Cart</button>
-    </div>  
-
-    <div class="product-card">
-      <img src="assets/images/gymmc.jpeg" alt="Product">
-      <h3 class="product-name">Vinex Home Gym Machine Ecos Pack</h3>
-      <div class="product-rating">⭐ 4.6</div>
-      <div class="product-price">₹25,999</div>
-      <button class="add-cart">Add to Cart</button>
-    </div>
-
-    <div class="product-card">
-      <img src="assets/images/redball.jpg" alt="Product">
-      <h3 class="product-name">Kookaburra Turf Cricket Ball</h3>
-      <div class="product-rating">⭐ 4.5</div>
-      <div class="product-price">₹923</div>
-      <button class="add-cart">Add to Cart</button>
-    </div>
-
-    <div class="product-card">
-      <img src="assets/images/football.avif" alt="Product">
-      <h3 class="product-name">Adidas Starlancer Club Football</h3>
-      <div class="product-rating">⭐ 4.6</div>
-      <div class="product-price">₹1,299</div>
-      <button class="add-cart">Add to Cart</button>
-    </div>
-
-    <div class="product-card">
-      <img src="assets/images/cloth1.jpeg" alt="Product">
-      <h3 class="product-name">Highlander Men's Solid Denim Jacket</h3>
-      <div class="product-rating">⭐ 4.2</div>
-      <div class="product-price">₹1,231</div>
-      <button class="add-cart">Add to Cart</button>
-    </div>
-
-    <div class="product-card">
-      <img src="assets/images/cloth2.jpeg" alt="Product">
-      <h3 class="product-name">Allen Solly Women's Formal Dress</h3>
-      <div class="product-rating">⭐ 4.6</div>
-      <div class="product-price">₹2,622</div>
-      <button class="add-cart">Add to Cart</button>
-    </div>
-
-    <div class="product-card">
-      <img src="assets/images/cloth3.jpeg" alt="Product">
-      <h3 class="product-name">WTFlex Solid Cream Overshirt Jacket</h3>
-      <div class="product-rating">⭐ 4.7</div>
-      <div class="product-price">₹1899</div>
-      <button class="add-cart">Add to Cart</button>
-    </div>
-
-    <div class="product-card">
-      <img src="assets/images/cloth4.jpeg" alt="Product">
-      <h3 class="product-name">Sangria Floral Dress</h3>
-      <div class="product-rating">⭐ 4.6</div>
-      <div class="product-price">₹865</div>
-      <button class="add-cart">Add to Cart</button>
-    </div>
-
-    <div class="product-card">
-      <img src="assets/images/washmc.webp" alt="Product">
-      <h3 class="product-name">LG 7 Kg 5 Star Inverter Fully Automatic Top Load</h3>
-      <div class="product-rating">⭐ 4.8</div>
-      <div class="product-price">₹26,990</div>
-      <button class="add-cart">Add to Cart</button>
-    </div>
-
-    <div class="product-card">
-      <img src="assets/images/washmc2.webp" alt="Product">
-      <h3 class="product-name">Samsung 7 kg, 5 Star, Fully-Automatic Top Load</h3>
-      <div class="product-rating">⭐ 4.0</div>
-      <div class="product-price">₹27,900</div>
-      <button class="add-cart">Add to Cart</button>
-    </div>
-
-    <div class="product-card">
-      <img src="assets/images/ac.jpg" alt="Product">
-      <h3 class="product-name">LG 1.5 Ton 5 Star AI Dual Inverter Split AC</h3>
-      <div class="product-rating">⭐ 4.6</div>
-      <div class="product-price">₹49,999</div>
-      <button class="add-cart">Add to Cart</button>
-    </div>
-
-    <div class="product-card">
-      <img src="assets/images/ac2.webp" alt="Product">
-      <h3 class="product-name">Voltas 1.5 Ton 3 Star Split AC</h3>
-      <div class="product-rating">⭐ 4.2</div>
-      <div class="product-price">₹59,999</div>
-      <button class="add-cart">Add to Cart</button>
-    </div>
-
-   <div class="product-card">
-    <img src="assets/images/pott.webp" alt="Product">
-    <h3 class="product-name">Decorative Ceramic Plante</h3>
-    <div class="product-rating">⭐4.4</div>
-    <div class="product-price">₹699</div>
-    <button class="add-cart">Add to Cart</button>
+    <!-- Products will be dynamically rendered here by JavaScript -->
   </div>
-
-   <div class="product-card">
-    <img src="assets/images/jar6.jpg" alt="Product">
-    <h3 class="product-name">Home Centre Mimosa Storage Glass Jars  Set of 6</h3>
-    <div class="product-rating">⭐ 4.2</div>
-    <div class="product-price">₹446</div>
-    <button class="add-cart">Add to Cart</button>
-  </div>
-  
-      <div class="product-card">
-    <img src="assets/images/table.webp" alt="Product">
-    <h3 class="product-name">Wooden Sheesham Coffee Table</h3>
-    <div class="product-rating">⭐ 4.4</div>
-    <div class="product-price">₹5895</div>
-    <button class="add-cart">Add to Cart</button>
-  </div>
-  
-  
-  <div class="product-card">
-    <img src="assets/images/sofa.jpg" alt="Product">
-    <h3 class="product-name">ofa Yolo Ottoman (Fabric, Avocado Green)</h3>
-    <div class="product-rating">⭐ 4.5</div>
-    <div class="product-price">5320</div>
-    <button class="add-cart">Add to Cart</button>
-  </div>
-  
-  <div class="product-card">
-    <img src="assets/images/makeup8.webp" alt="Product">
-    <h3 class="product-name">Lakmé Absolute Skin Natural Mousse Foundation</h3>
-    <div class="product-rating">⭐4.3</div>
-    <div class="product-price">₹1,585</div>
-    <button class="add-cart">Add to Cart</button>
-  </div>
-    
-  <div class="product-card">
-    <img src="assets/images/makeup9.jpg" alt="Product">
-    <h3 class="product-name">Maybelline New York Fit Me Matte + Poreless Foundation</h3>
-    <div class="product-rating">₹799</div>
-    <div class="product-price">⭐4.2</div>
-    <button class="add-cart">Add to Cart</button>
-  </div>
-  
-  <div class="product-card">
-    <img src="assets/images/lipstick.webp" alt="Product"> 
-    <h3 class="product-name">Colorbar Perfect Match Lipstick</h3>
-    <div class="product-rating">₹599</div>
-    <div class="product-price">⭐4.4</div>
-    <button class="add-cart">Add to Cart</button>
-  </div>
-
-    <div class="product-card">
-    <img src="assets/images/wash.jpg" alt="Product">
-    <h3 class="product-name">Biotique Morning Nectar Moisturize & Nourish Face Wash </h3>
-    <div class="product-rating">⭐4.5</div>
-    <div class="product-price">₹143</div>
-    <button class="add-cart">Add to Cart</button>
-  </div>
-
-   <div class="product-card">
-    <img src="assets/images/salit.webp" alt="Product">
-    <h3 class="product-name">Tata Salt Iodised Salt 1kg</h3>
-    <div class="product-rating">⭐4.4</div>
-    <div class="product-price">₹22</div>
-    <button class="add-cart">Add to Cart</button>
-  </div>
-  
-  <div class="product-card">
-    <img src="assets/images/wheat.webp" alt="Product">
-    <h3 class="product-name">Aashirvaad Whole Wheat Atta 5kg</h3>
-    <div class="product-rating">⭐4.5</div>
-    <div class="product-price">₹344</div>
-    <button class="add-cart">Add to Cart</button>
-  </div>
-
-
-    <div class="product-card">
-    <img src="assets/images/food.webp" alt="Product">
-    <h3 class="product-name">Bhujialalji Bikaneri Bhujia 1kg</h3>
-    <div class="product-rating">⭐4.6</div>
-    <div class="product-price">₹209</div>
-    <button class="add-cart">Add to Cart</button>
-  </div>
-
-    <div class="product-card">
-    <img src="assets/images/milk.webp" alt="Product">
-    <h3 class="product-name">Amul Gold Full Cream Milk Powder 500g</h3>
-    <div class="product-rating">⭐4.0</div>
-    <div class="product-price">₹220</div>
-    <button class="add-cart">Add to Cart</button>
-  </div>
-
-    <div class="product-card">
-    <img src="assets/images/shoes.webp" alt="Product">
-    <h3 class="product-name">Nike Women Lace Up Running Shoes</h3>
-    <div class="product-rating">: ⭐ 4.4</div>
-    <div class="product-price">₹4,695</div>
-    <button class="add-cart">Add to Cart</button>
-  </div>
-
-    <div class="product-card">
-    <img src="assets/images/shoes2.jpg" alt="Product">
-    <h3 class="product-name">Adidas Men's Clinch-X M Running Shoes</h3>
-    <div class="product-rating">⭐ 4.4</div>
-    <div class="product-price">₹4,000</div>
-    <button class="add-cart">Add to Cart</button>
-  </div>
-
-    <div class="product-card">
-    <img src="assets/images/watch.jpg" alt="Product">
-    <h3 class="product-name">Casio Mens MTP-V001L-1BUDF Wristwatch</h3>
-    <div class="product-rating">⭐ 4.6</div>
-    <div class="product-price">₹1,095</div>
-    <button class="add-cart">Add to Cart</button>
-  </div>
-
-    <div class="product-card">
-    <img src="assets/images/watch2.jpg" alt="Product">
-    <h3 class="product-name">G-Shock GA-2100 Series Watch</h3>
-    <div class="product-rating"></div>
-    <div class="product-price">₹20000</div>
-    <button class="add-cart">Add to Cart</button>
-  </div>
-
 </section>
 
 <footer class="footer">
@@ -424,64 +191,21 @@
     </div>
 
     <!-- Social -->
-    <div class="footer-section">
-      <h3>Follow Us</h3>
-      <a href="#">Facebook</a>
-      <a href="#">Twitter</a>
-      <a href="#">Instagram</a>
-      <a href="#">YouTube</a>
-    </div>
+  <div class="footer-section">
+  <h3>Follow Us</h3>
+  <a href="https://www.facebook.com/flipkart" target="_blank">Facebook</a>
+  <a href="https://twitter.com/flipkart" target="_blank">Twitter</a>
+  <a href="https://www.instagram.com/flipkart" target="_blank">Instagram</a>
+  <a href="https://www.youtube.com/@Flipkart" target="_blank">YouTube</a>
+</div>
 
   </div>
 
   <div class="footer-bottom">© 2025 Flipkart Clone. All Rights Reserved.</div>
 </footer>
-<script>
-let slideIndex = 1;
-showSlides(slideIndex);
-
-/* ---------- MANUAL CONTROLS ---------- */
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-/* ---------- SHOW SLIDE ---------- */
-function showSlides(n) 
-{
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
-
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-
-  for (i = 0; i < dots.length; i++) {
-    dots[i].classList.remove("active");
-  }
-
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].classList.add("active");
-}
-
-/* ---------- AUTO SLIDE ---------- */
-setInterval(() => {
-  plusSlides(1);
-}, 2000); // Change slide every 4 seconds
-</script>
-
-
-
+<script src="js/data.js"></script>
+<script src="js/home.js"></script>
+<script src="js/showslide.js"></script>
+<script src="js/hamburger.js"></script>
 </body>
 </html>

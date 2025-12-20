@@ -1,0 +1,1 @@
+// home page dynamic rendering of products 

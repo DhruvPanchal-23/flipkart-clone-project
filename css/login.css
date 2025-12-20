@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* ================= HEADER ================= */
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: #2874f0;
+  z-index: 1000;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: #fff;
+}
+
+.header nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* ================= MAIN ================= */
+body {
+  background: #f1f3f6;
+}
+
+.main {
+  min-height: calc(100vh - 220px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================= LOGIN ================= */
+.login-container {
+  width: 380px;
+  background: white;
+  border-radius: 6px;
+  overflow: hidden; /* 🔥 Needed for banner */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* Banner */
+.login-banner img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Inner content */
+.login-container h2 {
+  text-align: center;
+  margin: 20px 0;
+  color: #2874f0;
+}
+
+.login-container input {
+  width: 85%;
+  padding: 12px;
+  margin: 0 auto 15px;
+  display: block;
+  border: 1px solid #ccc;
+}
+
+.login-container button {
+  width: 85%;
+  padding: 12px;
+  margin: 0 auto 15px;
+  display: block;
+  background: #2874f0;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background: #1a5fd0;
+}
+
+#error {
+  text-align: center;
+  color: red;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+.login-signup a {
+  cursor: pointer;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  background: #172337;
+  color: #fff;
+  padding: 40px 0 10px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.footer h4 {
+  margin-bottom: 10px;
+  color: #878787;
+}
+
+.footer a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer p {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+  color: #ccc;
+}
