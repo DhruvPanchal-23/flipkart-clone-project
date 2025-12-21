@@ -7,7 +7,12 @@ hamburger.addEventListener("click", () => {
 
 /* Close menu when clicking a category */
 document.querySelectorAll(".side-menu a").forEach(link => {
-  link.addEventListener("click", () => {
+  link.addEventListener("click", (e) => {
+    // If category link with data-category attribute, trigger filter
+    const category = link.getAttribute("data-category");
+    if (category && typeof handleCategoryFilter === 'function') {
+      handleCategoryFilter(category);
+    }
     sideMenu.classList.remove("active");
   });
 });
@@ -16,10 +21,4 @@ document.querySelectorAll(".side-menu a").forEach(link => {
 function toggleMenu() {
   sideMenu.classList.toggle("active");
 }
-
-document.querySelectorAll(".side-menu a").forEach(link => {
-  link.addEventListener("click", () => {
-    sideMenu.classList.remove("active");
-  });
-});
 

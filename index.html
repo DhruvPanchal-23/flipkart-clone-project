@@ -9,112 +9,127 @@
 </head>
 <body>
   <header class="header">
-    <div class="header-container">
-      <!--logo--->
-      <div class="logo">
-        <a href="index.html">
-          <img src="assets/images/logoname.png" alt="filpkart">
-        </a>
-      </div>
-         
-            <!---Search-bar--->
-            <div class="search-box">
-              <input type="text" placeholder="Search for products"/>
-              <button id="searchBtn">
-                <span class="material-icons">search</span>
-              </button>
-            </div>
+    <header class="header">
+  <div class="header-container">
 
-            <!--cart-icon--->
-            <div class="cart">
-                <a href="cart.html">
-                    <span class="material-icons">shopping_cart</span>
-                    <span class="cart-count">0</span>
-                </a>
-            </div>
-
-            <!---login-&-signup-button---> 
-            <div class="login-signup">
-                <a href="login.html" title="Login / Signup"></a>
-                <span class="material-icons">account_circle</span>
-                <span class="auth-text">Login</span>
-                </a>
-            </div>
-
-            <!--hamdurger-menu-->
-            <div class="hamburger" id ="hamburger">
-                <span class="material-icons">menu</span>
-            </div>
-            <div class="side-menu" id="sideMenu">
-               <span class="close-btn" onclick="toggleMenu()">×</span>
-  <h3>Categories</h3>
-  <a href="#" data-category="all">All</a>
-  <a href="#" data-category="mobiles">Mobiles & Tablets</a>
-  <a href="#" data-category="sports">Sports</a>
-  <a href="#" data-category="fashion">Fashion</a>
-  <a href="#" data-category="tv">TV & Appliances</a>
-  <a href="#" data-category="home">Home & Furniture</a>
-  <a href="#" data-category="beauty">Beauty</a>
-  <a href="#" data-category="grocery">Grocery</a>
-  <a href="#" data-category="electronic">Electronics</a>
-  <a href="#" data-category="toys">Toys</a>
-  <a href="#" data-category="laptop">Laptops</a>
-    </div>
-</div>
-    </header>
-   <!--CATEGORY-SECTION -->
-<section class="category-section">
-
-  <div class="category-container">
-
-    <!-- All -->
-    <div class="category-item" data-category="all">
-      <img src="assets/images/logokart.png" alt="All">
-      <span>All</span>
+    <!-- Logo -->
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/images/logoname.png" alt="Flipkart">
+      </a>
     </div>
 
-    <!--Mobiles-&-Tablets-->
-    <div class="category-item" data-category="mobiles">
+    <!-- Search bar -->
+    <div class="search-box">
+      <input type="text" placeholder="Search for products" />
+      <button id="searchBtn">
+        <span class="material-icons">search</span>
+      </button>
+    </div>
+
+    <!-- Cart -->
+    <div class="cart">
+      <a href="cart.html">
+        <span class="material-icons">shopping_cart</span>
+        <span class="cart-count">0</span>
+      </a>
+    </div>
+
+    <!-- Login -->
+    <div class="login-signup">
+      <a href="login.html" title="Login / Signup">
+        <span class="material-icons">account_circle</span>
+        <span class="auth-text">Login</span>
+      </a>
+    </div>
+
+    <!-- Hamburger -->
+    <div class="hamburger" id="hamburger">
+      <span class="material-icons">menu</span>
+    </div>
+
+    <!-- Side Menu -->
+    <div class="side-menu" id="sideMenu">
+      <span class="close-btn" onclick="toggleMenu()">×</span>
+
+      <h3>Categories</h3>
+      <a href="#" data-category="all">All</a>
+      <a href="#" data-category="mobiles">Mobiles & Tablets</a>
+      <a href="#" data-category="fashion">Fashion</a>
+      <a href="#" data-category="tv">TV & Appliances</a>
+      <a href="#" data-category="home">Home & Furniture</a>
+      <a href="#" data-category="beauty">Beauty</a>
+      <a href="#" data-category="grocery">Grocery</a>
+      <a href="#" data-category="sports">Sports</a>
+      <a href="#" data-category="electronic">Electronics</a>
+      <a href="#" data-category="toys">Toys</a>
+      <a href="#" data-category="laptop">Laptops</a>
+    </div>
+
+  </div>
+</header>
+
+  </header>
+  <!----Catagorie-Section --->
+<section class="catagories-section">
+  <div class="categories-container">
+
+    <a href="mobileAndTablet.html" data-category="mobiles">
       <img src="assets/images/iphone.jpg" alt="Mobiles & Tablets">
       <span>Mobiles & Tablets</span>
-    </div>
+    </a>
 
-    <!-- Sports -->
-    <div class="category-item" data-category="sports">
-      <img src="assets/images/sports1.jpg" alt="Sports">
-      <span>Sports</span>
-    </div>
-
-    <!-- Fashion -->
-    <div class="category-item" data-category="fashion">
+    <a href="fashion.html" data-category="fashion">
       <img src="assets/images/fashion.jpg" alt="Fashion">
-      <span>Fashion</span>
-    </div>
+      <span>Fashion</span> 
+    </a>
 
-    <!-- TV & Appliances -->
-    <div class="category-item" data-category="tv">
+    <a href="tvAndAppliances.html" data-category="tv">
       <img src="assets/images/tv2.jpg" alt="TV & Appliances">
       <span>TV & Appliances</span>
-    </div>
+    </a>
 
-    <!-- Home & Furniture -->
-    <div class="category-item" data-category="home">
+    <a href="homeAndFurniture.html" data-category="home">
       <img src="assets/images/furniture.jpg" alt="Home & Furniture">
       <span>Home & Furniture</span>
-    </div>
+    </a>
 
-    <!-- Beauty -->
-    <div class="category-item" data-category="beauty">
-      <img src="assets/images/makeup6.jpeg" alt="Beauty">
-      <span>Beauty Products</span>
-    </div>
+    <a href="beautyProduct.html" data-category="beauty">
+    <img src="assets/images/makeup6.jpeg" alt="Beauty">
+    <span>Beauty</span>
+  </a>
 
-    <!-- Grocery -->
-    <div class="category-item" data-category="grocery">
-      <img src="assets/images/Grocery1.jpg" alt="Grocery">
-      <span>Grocery</span>
-    </div>
+  <a href="grocery.html" data-category="grocery">
+    <img src="assets/images/Grocery2.jpg" alt="Grocery">
+    <span>Grocery</span>
+  </a>
+
+  <a href="sports.html" data-category="sports">
+    <img src="assets/images/sports1.jpg" alt="Sports">
+    <span>Sports</span>
+  </a>
+
+  <a href="electronic.html" data-category="electronic">
+    <img src="assets/images/headphone.jpg" alt="Electronics">
+    <span>Electronics</span>
+  </a>
+
+  <a href="toys.html" data-category="toys">
+    <img src="assets/images/toys.webp" alt="Toys">
+    <span>Toys</span>
+  </a>
+
+  <a href="laptop.html" data-category="laptop">
+    <img src="assets/images/laptop.jpg" alt="Laptops">
+    <span>Laptops</span>
+  </a>
+  </div>
+
+  
+
+
 </section>
+
 <!---FLIPKART-BANNER-CAROUSEL--->
 <section class="flipkart-banner">
   <div class="slideshow-container">

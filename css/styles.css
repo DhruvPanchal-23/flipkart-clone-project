@@ -241,13 +241,14 @@ body {
 
 /* ------------------------------------------------CATEGORY SECTION-------------------------------------------------- */
 
-.category-section {
+.catagories-section {
   background-color: #ffffff;
-  padding: 15px 0;
+  padding: 16px 0;
   border-bottom: 1px solid #e0e0e0;
 }
 
-.category-container {
+/* Container */
+.categories-container {
   width: 90%;
   margin: auto;
   display: flex;
@@ -256,57 +257,63 @@ body {
   gap: 24px;
 }
 
-/* Individual Category Item */
-.category-item {
-  width: 90px;                 
+/* Category Card (Anchor tag) */
+.catagories-section a {
+  width: 90px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  cursor: pointer;
-  font-family: "Inter", sans-serif;
-  font-size: 14px;
+  text-decoration: none;        /* ❌ No underline */
   color: #2e2e2e;
-  text-align: center;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
-/* Equal Image Size */
-.category-item img {
+/* Image */
+.catagories-section a img {
   width: 64px;
   height: 64px;
-  object-fit: contain;          
-  display: block;
+  object-fit: contain;
   margin-bottom: 6px;
 }
 
+/* Text */
+.catagories-section a span {
+  text-align: center;
+  font-weight: 500;
+}
+
 /* Hover Effect */
-.category-item:hover {
+.catagories-section a:hover {
   transform: translateY(-2px);
 }
 
-.category-item:hover span {
+.catagories-section a:hover span {
   color: #2874f0;
 }
 
-/* Active Category */
-.category-item.active span {
-  color: #2874f0;
-  font-weight: 600;
-}
-
-/*   RESPONSIVE */
+/* ================= RESPONSIVE ================= */
 
 @media (max-width: 768px) {
-  .category-container {
+  .categories-container {
     overflow-x: auto;
     justify-content: flex-start;
-    padding-bottom: 6px;
+    padding-bottom: 8px;
   }
 
-  .category-item {
+  .catagories-section a {
     min-width: 90px;
   }
+
+  /* Hide scrollbar (optional) */
+  .categories-container::-webkit-scrollbar {
+    display: none;
+  }
 }
-/*   FLIPKART BANNER CAROUSEL */
+
+/*-----------------------------------FLIPKART BANNER CAROUSEL----------------------------------*/
 .slideshow-container {
   width: 90%;
   max-width: 2000px;
