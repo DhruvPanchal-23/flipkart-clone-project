@@ -17,7 +17,7 @@ const products = [
     category: "mobiles",
     price: 159999,
     rating: 4.8,
-    image: "assets/images/iphone5.jpeg"
+    image: "assets/images/iphone2.jpeg"
   },
   {
     id: 4,
