@@ -47,7 +47,12 @@ function renderProducts(productList) {
 }
 
 // ------------------------ INITIAL LOAD ---------------------------------------------
-renderProducts(products);
+const category = productGrid.dataset.category;
+if (category) {
+  renderProducts(products.filter(p => p.category === category));
+} else {
+  renderProducts(products);
+}
 updateCartCount();
 
 // ---------------------------SMART SEARCH  ----------------------------------------

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Category Page | Flipkart Clone</title>
+
+  <!-- Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/cart.css">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+  <div class="header-container">
+
+    <!-- Logo -->
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/images/logoname.png" alt="Flipkart">
+      </a>
+    </div>
+
+    <!-- Search -->
+    <div class="search-box">
+      <input type="text" placeholder="Search for products" />
+      <button>
+        <span class="material-icons">search</span>
+      </button>
+    </div>
+
+    <!-- Cart -->
+    <div class="cart">
+      <a href="cart.html">
+        <span class="material-icons">shopping_cart</span>
+        <span class="cart-count">0</span>
+      </a>
+    </div>
+
+    <!-- Login -->
+    <div class="login-signup">
+      <a href="login.html">
+        <span class="material-icons">account_circle</span>
+        <span class="auth-text">Login</span>
+      </a>
+    </div>
+
+
+</header>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main style="margin-top: 80px;">
+<div class="cart-wrapper">
+
+    <!-- ================= LEFT : CART ITEMS ================= -->
+    <section class="cart-left">
+
+      <!-- Address Bar -->
+      <div class="cart-address">
+        <span>From Saved Addresses</span>
+        <button class="pincode-btn">Enter Delivery Address</button>
+      </div>
+
+      <!-- Cart Items -->
+      <div class="cart-items" id="cart-items">
+        <!-- Cart items will be dynamically added here -->
+      </div>
+
+    </section>
+
+    <!-- ================= RIGHT : CART SUMMARY ================= -->
+    <section class="cart-right">
+      <div class="cart-summary">
+        <h3>Price Details</h3>
+        <div class="summary-row">
+          <span>Price (<span id="item-count">0</span> items)</span>
+          <span>₹<span id="total-price">0</span></span>
+        </div>
+        <div class="summary-row">
+          <span>Delivery Charges</span>
+          <span id="delivery-charges">₹40</span>
+        </div>
+        <div class="summary-row discount">
+          <span>Discount (40%)</span>
+          <span>-₹<span id="discount-amount">0</span></span>
+        </div>
+        <hr>
+        <div class="summary-row total">
+          <span>Total Amount</span>
+          <span>₹<span id="final-total">0</span></span>
+        </div>
+        <button class="checkout-btn">Place Order</button>
+      </div>
+    </section>
+
+</div>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-section footer-logo">
+      <img src="assets/images/logoname.png" alt="Flipkart Logo">
+      <p>India’s leading online shopping destination</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>About</h3>
+      <a href="#">Contact Us</a>
+      <a href="#">About Us</a>
+      <a href="#">Careers</a>
+      <a href="#">Flipkart Stories</a>
+    </div>
+
+    <div class="footer-section">
+      <h3>Help</h3>
+      <a href="#">Payments</a>
+      <a href="#">Shipping</a>
+      <a href="#">Cancellation & Returns</a>
+      <a href="#">FAQs</a>
+    </div>
+
+    <div class="footer-section">
+      <h3>Policy</h3>
+      <a href="#">Return Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Security</a>
+      <a href="#">Privacy</a>
+    </div>
+
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 Flipkart Clone. All Rights Reserved.
+  </div>
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
+
+
+</body>
+</html>
