@@ -62,7 +62,7 @@
       <!-- Address Bar -->
       <div class="cart-address">
         <span>From Saved Addresses</span>
-        <button class="pincode-btn">Enter Delivery Address</button>
+        <button class="pincode-btn" onclick="goToCheckout()">Enter Delivery Address</button>
       </div>
 
       <!-- Cart Items -->
@@ -85,7 +85,7 @@
           <span id="delivery-charges">₹40</span>
         </div>
         <div class="summary-row discount">
-          <span>Discount (40%)</span>
+          <span>Discount (5%)</span>
           <span>-₹<span id="discount-amount">0</span></span>
         </div>
         <hr>
@@ -93,13 +93,12 @@
           <span>Total Amount</span>
           <span>₹<span id="final-total">0</span></span>
         </div>
-        <button class="checkout-btn">Place Order</button>
+        <button class="checkout-btn" onclick="goToCheckout()">Place Order</button>
       </div>
     </section>
 
 </div>
 </main>
-
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="footer-container">
@@ -147,7 +146,6 @@
     © 2025 Flipkart Clone. All Rights Reserved.
   </div>
 </footer>
-
 <!-- ================= SCRIPTS ================= -->
 <script src="js/data.js"></script>
 <script src="js/cart.js"></script>

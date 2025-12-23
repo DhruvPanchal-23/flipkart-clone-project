@@ -78,7 +78,7 @@ function updateTotals(cart) {
     totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   }
 
-  const discount = Math.round(totalPrice * 0.4); // 40% discount
+  const discount = Math.round(totalPrice * 0.04); // 4% discount
   const discountedTotal = totalPrice - discount;
   const finalTotal = discountedTotal + 40; // Adding delivery charges
 
@@ -112,3 +112,14 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCartCount();
   renderCart();
 });
+// Go to checkout page
+function goToCheckout() {
+  const cart = getCart();
+
+  if (cart.length === 0) {
+    alert("Your cart is empty");
+    return;
+  }
+
+  window.location.href = "address.html";
+}
