@@ -42,13 +42,28 @@ addressForm.addEventListener('submit', function(e) {
   // Save address to localStorage
   localStorage.setItem('deliveryAddress', JSON.stringify(addressData));
 
-  // Redirect to payment page
-  window.location.href = 'payment.html';
+  // Check if there's a cart with items
+  const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  if (cart.length > 0) {
+    // Redirect to payment page if there are items in cart
+    window.location.href = 'payment.html';
+  } else {
+    // Show success message and redirect to home if no cart items
+    alert('Address saved successfully! You can now add items to your cart.');
+    window.location.href = 'index.html';
+  }
 });
 
-// Go back to checkout page
+// Go back to appropriate page
 function goBack() {
-  window.location.href = 'checkout.html';
+  const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  if (cart.length > 0) {
+    // If there are items in cart, go back to checkout
+    window.location.href = 'checkout.html';
+  } else {
+    // If no items in cart, go back to home
+    window.location.href = 'index.html';
+  }
 }
 
 // Pre-fill form if address exists

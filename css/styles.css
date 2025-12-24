@@ -93,6 +93,25 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+/* Address Link */
+.address-link a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.address-link .material-icons {
+  font-size: 28px;
+}
+
+.address-text {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+}
+
 /*    Login / Signup */
 .login-signup a {
   display: flex;
@@ -114,7 +133,8 @@ body {
 
 /*   Hover Effects */
 .login-signup a:hover,
-.cart a:hover {
+.cart a:hover,
+.address-link a:hover {
   opacity: 0.9;
 }
 
@@ -124,7 +144,8 @@ body {
     display: none;
   }
 
-  .auth-text {
+  .auth-text,
+  .address-text {
     display: none;
   }
 }

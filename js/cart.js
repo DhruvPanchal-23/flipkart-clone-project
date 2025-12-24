@@ -30,6 +30,20 @@ function renderCart() {
   const cart = getCart();
   cartItemsContainer.innerHTML = '';
 
+  // Update checkout button state
+  const checkoutBtn = document.querySelector('.checkout-btn');
+  if (checkoutBtn) {
+    if (cart.length === 0) {
+      checkoutBtn.disabled = true;
+      checkoutBtn.textContent = 'Cart is Empty';
+      checkoutBtn.style.opacity = '0.5';
+    } else {
+      checkoutBtn.disabled = false;
+      checkoutBtn.textContent = 'Place Order';
+      checkoutBtn.style.opacity = '1';
+    }
+  }
+
   if (cart.length === 0) {
     cartItemsContainer.innerHTML = `
       <div class="empty-cart">
@@ -121,5 +135,10 @@ function goToCheckout() {
     return;
   }
 
+  window.location.href = "checkout.html";
+}
+
+// Go to address page (works with empty cart)
+function goToAddress() {
   window.location.href = "address.html";
 }
