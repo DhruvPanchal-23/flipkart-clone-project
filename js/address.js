@@ -20,22 +20,28 @@ addressForm.addEventListener('submit', function(e) {
     isDefault: formData.get('default-address') === 'on'
   };
 
-  // Basic validation
-  if (!addressData.name || !addressData.phone || !addressData.pincode ||
-      !addressData.city || !addressData.address || !addressData.state) {
-    alert('Please fill in all required fields');
-    return;
+  // Validate all fields
+  let hasErrors = false;
+  const requiredFields = ['name', 'phone', 'pincode', 'city', 'address', 'state'];
+
+  requiredFields.forEach(fieldName => {
+    const field = document.getElementById(fieldName);
+    if (!addressData[fieldName] || !validateField(field)) {
+      hasErrors = true;
+    }
+  });
+
+  // Additional validation for specific fields
+  if (addressData.phone && !/^[6-9]\d{9}$/.test(addressData.phone)) {
+    hasErrors = true;
   }
 
-  // Validate phone number (basic check)
-  if (!/^[6-9]\d{9}$/.test(addressData.phone)) {
-    alert('Please enter a valid 10-digit phone number');
-    return;
+  if (addressData.pincode && !/^\d{6}$/.test(addressData.pincode)) {
+    hasErrors = true;
   }
 
-  // Validate pincode (basic check)
-  if (!/^\d{6}$/.test(addressData.pincode)) {
-    alert('Please enter a valid 6-digit pincode');
+  if (hasErrors) {
+    alert('Please fill in all required fields correctly');
     return;
   }
 
@@ -66,8 +72,56 @@ function goBack() {
   }
 }
 
-// Pre-fill form if address exists
+// Real-time form validation
+function validateField(field) {
+  const formGroup = field.closest('.form-group');
+  const value = field.value.trim();
+  let isValid = false;
+
+  switch(field.name) {
+    case 'name':
+      isValid = value.length >= 2;
+      break;
+    case 'phone':
+      isValid = /^[6-9]\d{9}$/.test(value);
+      break;
+    case 'pincode':
+      isValid = /^\d{6}$/.test(value);
+      break;
+    case 'city':
+      isValid = value.length >= 2;
+      break;
+    case 'address':
+      isValid = value.length >= 10;
+      break;
+    case 'state':
+      isValid = value !== '';
+      break;
+    default:
+      isValid = value.length > 0;
+  }
+
+  return isValid;
+}
+
+// Add real-time validation to form fields
 document.addEventListener('DOMContentLoaded', function() {
+  const inputs = addressForm.querySelectorAll('input, textarea, select');
+
+  inputs.forEach(input => {
+    input.addEventListener('blur', function() {
+      validateField(this);
+    });
+
+    input.addEventListener('input', function() {
+      // Re-validate field when user types
+      if (this.value.trim() !== '') {
+        validateField(this);
+      }
+    });
+  });
+
+  // Pre-fill form if address exists
   const savedAddress = localStorage.getItem('deliveryAddress');
   if (savedAddress) {
     const addressData = JSON.parse(savedAddress);
