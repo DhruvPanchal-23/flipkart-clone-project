@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout | Flipkart Clone</title>
+
+  <!-- Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/checkout.css">
+
+  <!-- jsPDF for PDF generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+  <div class="header-container">
+
+    <!-- Logo -->
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/images/logoname.png" alt="Flipkart">
+      </a>
+    </div>
+
+    <!-- Search -->
+    <div class="search-box">
+      <input type="text" placeholder="Search for products" />
+      <button>
+        <span class="material-icons">search</span>
+      </button>
+    </div>
+
+    <!-- Cart -->
+    <div class="cart">
+      <a href="cart.html">
+        <span class="material-icons">shopping_cart</span>
+        <span class="cart-count">0</span>
+      </a>
+    </div>
+
+    <!-- Address -->
+    <div class="address-link">
+      <a href="address.html" title="Delivery Address">
+        <span class="material-icons">location_on</span>
+        <span class="address-text">Address</span>
+      </a>
+    </div>
+
+    <!-- Login -->
+    <div class="login-signup">
+      <a href="login.html">
+        <span class="material-icons">account_circle</span>
+        <span class="auth-text">Login</span>
+      </a>
+    </div>
+
+  </div>
+</header>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main style="margin-top: 80px;">
+  <div class="checkout-container">
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+      <div class="progress-step completed">
+        <span class="step-number">1</span>
+        <span class="step-text">Cart</span>
+      </div>
+      <div class="progress-step completed">
+        <span class="step-number">2</span>
+        <span class="step-text">Address</span>
+      </div>
+      <div class="progress-step active">
+        <span class="step-number">3</span>
+        <span class="step-text">Review</span>
+      </div>
+      <div class="progress-step">
+        <span class="step-number">4</span>
+        <span class="step-text">Payment</span>
+      </div>
+    </div>
+
+    <div class="checkout-content">
+
+      <!-- ================= LEFT : ORDER SUMMARY ================= -->
+      <section class="order-summary">
+
+        <!-- Delivery Address -->
+        <div class="summary-section">
+          <h3>Delivery Address</h3>
+          <div class="address-display" id="delivery-address">
+            <p>No delivery address selected. <a href="address.html">Add Address</a></p>
+          </div>
+        </div>
+
+        <!-- Order Items -->
+        <div class="summary-section">
+          <h3>Order Summary</h3>
+          <div class="order-items" id="order-items">
+            <!-- Items will be loaded here -->
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ================= RIGHT : PRICE DETAILS ================= -->
+      <section class="price-details">
+        <div class="price-summary">
+          <h3>Price Details</h3>
+
+          <div class="price-row">
+            <span>Price (<span id="item-count">0</span> items)</span>
+            <span>₹<span id="total-price">0</span></span>
+          </div>
+
+          <div class="price-row">
+            <span>Delivery Charges</span>
+            <span id="delivery-charges">₹40</span>
+          </div>
+
+          <div class="price-row discount">
+            <span>Discount (5%)</span>
+            <span>-₹<span id="discount-amount">0</span></span>
+          </div>
+
+          <hr>
+
+          <div class="price-row total">
+            <span>Total Amount</span>
+            <span>₹<span id="final-total">0</span></span>
+          </div>
+
+          <button class="place-order-btn" id="place-order-btn" onclick="placeOrder()">
+            Place Order
+          </button>
+
+          <button class="download-pdf-btn" id="download-pdf-btn" onclick="downloadOrderPDF()" style="display: none;">
+            Download Order PDF
+          </button>
+        </div>
+      </section>
+
+    </div>
+
+  </div>
+</main>
+
+<!-- ================= ORDER SUCCESS MODAL ================= -->
+<div id="order-success-modal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="material-icons success-icon">check_circle</span>
+      <h2>Order Placed Successfully!</h2>
+    </div>
+    <div class="modal-body">
+      <p>Thank you for shopping with us. Your order has been placed successfully.</p>
+      <div class="order-details">
+        <p><strong>Order ID:</strong> <span id="order-id"></span></p>
+        <p><strong>Estimated Delivery:</strong> 3-5 business days</p>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-secondary" onclick="downloadOrderPDF()">Download Invoice</button>
+      <button class="btn-primary" onclick="continueShopping()">Continue Shopping</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-section footer-logo">
+      <img src="assets/images/logoname.png" alt="Flipkart Logo">
+      <p>India's leading online shopping destination</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>About</h3>
+      <a href="#">Contact Us</a>
+      <a href="#">About Us</a>
+      <a href="#">Careers</a>
+      <a href="#">Flipkart Stories</a>
+    </div>
+
+    <div class="footer-section">
+      <h3>Help</h3>
+      <a href="#">Payments</a>
+      <a href="#">Shipping</a>
+      <a href="#">Cancellation & Returns</a>
+      <a href="#">FAQs</a>
+    </div>
+
+    <div class="footer-section">
+      <h3>Policy</h3>
+      <a href="#">Return Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Security</a>
+      <a href="#">Privacy</a>
+    </div>
+
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 Flipkart Clone. All Rights Reserved.
+  </div>
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+<script src="js/data.js"></script>
+<script src="js/checkout.js"></script>
+
+</body>
+</html></content>
+<parameter name="filePath">c:\flipkart-clone-project\checkout.html
