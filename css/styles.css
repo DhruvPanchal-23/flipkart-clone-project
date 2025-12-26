@@ -406,6 +406,34 @@ body {
   color: #2e2e2e;
 }
 
+/* Sorting Container */
+.sorting-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.sorting-container label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #2e2e2e;
+}
+
+.sorting-container select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.sorting-container select:focus {
+  outline: none;
+  border-color: #2874f0;
+}
+
 /* Grid */
 .product-grid {
   display: grid;

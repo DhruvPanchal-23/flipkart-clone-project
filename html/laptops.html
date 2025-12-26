@@ -65,6 +65,18 @@
   <section class="product-section">
     <h2 class="section-title">Category Name</h2>
 
+    <!-- Sorting Dropdown -->
+    <div class="sorting-container">
+      <label for="sort-select">Sort by:</label>
+      <select id="sort-select">
+        <option value="default">Default</option>
+        <option value="price-low-high">Price: Low to High</option>
+        <option value="price-high-low">Price: High to Low</option>
+        <option value="name-a-z">Name: A to Z</option>
+        <option value="name-z-a">Name: Z to A</option>
+      </select>
+    </div>
+
     <div class="product-grid" data-category="laptops">
       <!-- Products will be rendered here using JS -->
     </div>

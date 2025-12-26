@@ -71,7 +71,7 @@
       <a href="#" data-category="sports">Sports</a>
       <a href="#" data-category="electronic">Electronics</a>
       <a href="#" data-category="toys">Toys</a>
-      <a href="#" data-category="laptop">Laptops</a>
+      <a href="#" data-category="laptops">Laptops</a>
     </div>
 
   </div>
@@ -168,6 +168,19 @@
 <!----PRODUCT SECTION---->
 <section class="product-section"> 
   <h2 class="section-title">Top Deals</h2>
+
+  <!-- Sorting Dropdown -->
+  <div class="sorting-container">
+    <label for="sort-select">Sort by:</label>
+    <select id="sort-select">
+      <option value="default">Default</option>
+      <option value="price-low-high">Price: Low to High</option>
+      <option value="price-high-low">Price: High to Low</option>
+      <option value="name-a-z">Name: A to Z</option>
+      <option value="name-z-a">Name: Z to A</option>
+    </select>
+  </div>
+
   <div class="product-grid">
     <!-- Products will be dynamically rendered here by JavaScript -->
   </div>

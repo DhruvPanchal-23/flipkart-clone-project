@@ -3,6 +3,7 @@ const productGrid = document.querySelector(".product-grid");
 const searchInput = document.querySelector(".search-box input");
 const searchBtn = document.getElementById("searchBtn");
 const sideMenuLinks = document.querySelectorAll(".side-menu a");
+const sortSelect = document.getElementById("sort-select");
 
 //-----------------------------CART UTILITIES--------------------------------
 function getCart() {
@@ -22,15 +23,35 @@ function updateCartCount() {
 }
 
 //--------------------------------RENDER PRODUCTS----------------------------------------
-function renderProducts(productList) {
+function renderProducts(productList, sortBy = 'default') {
+  // Sort the products based on sortBy
+  let sortedProducts = [...productList];
+  switch (sortBy) {
+    case 'price-low-high':
+      sortedProducts.sort((a, b) => a.price - b.price);
+      break;
+    case 'price-high-low':
+      sortedProducts.sort((a, b) => b.price - a.price);
+      break;
+    case 'name-a-z':
+      sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+      break;
+    case 'name-z-a':
+      sortedProducts.sort((a, b) => b.name.localeCompare(a.name));
+      break;
+    default:
+      // Default order
+      break;
+  }
+
   productGrid.innerHTML = "";
 
-  if (productList.length === 0) {
+  if (sortedProducts.length === 0) {
     productGrid.innerHTML = "<p>No products found</p>";
     return;
   }
 
-  productList.forEach(product => {
+  sortedProducts.forEach(product => {
     const card = document.createElement("div");
     card.className = "product-card";
 
@@ -48,12 +69,17 @@ function renderProducts(productList) {
 
 // ------------------------ INITIAL LOAD ---------------------------------------------
 const category = productGrid.dataset.category;
-if (category) {
-  renderProducts(products.filter(p => p.category === category));
-} else {
-  renderProducts(products);
-}
+let currentProductList = category ? products.filter(p => p.category === category) : products;
+
+renderProducts(currentProductList);
 updateCartCount();
+
+// Event listener for sorting
+if (sortSelect) {
+  sortSelect.addEventListener("change", () => {
+    renderProducts(currentProductList, sortSelect.value);
+  });
+}
 
 // ---------------------------SMART SEARCH  ----------------------------------------
 function smartSearch(query) {
@@ -85,10 +111,11 @@ function smartSearch(query) {
 searchBtn.addEventListener("click", () => {
   const query = searchInput.value.trim();
   if (!query) {
-    renderProducts(products);
-    return;
+    currentProductList = category ? products.filter(p => p.category === category) : products;
+  } else {
+    currentProductList = smartSearch(query);
   }
-  renderProducts(smartSearch(query));
+  renderProducts(currentProductList, sortSelect ? sortSelect.value : 'default');
 });
 
 searchInput.addEventListener("keypress", e => {
@@ -102,10 +129,12 @@ sideMenuLinks.forEach(link => {
     const category = link.dataset.category;
 
     if (category === "all") {
-      renderProducts(products);
+      currentProductList = products;
     } else {
-      renderProducts(products.filter(p => p.category === category));
+      currentProductList = products.filter(p => p.category === category);
     }
+
+    renderProducts(currentProductList, sortSelect ? sortSelect.value : 'default');
 
     document.getElementById("sideMenu")?.classList.remove("active");
   });
