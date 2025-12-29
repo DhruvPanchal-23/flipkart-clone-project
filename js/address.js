@@ -52,7 +52,7 @@ addressForm.addEventListener('submit', function(e) {
   const cart = JSON.parse(localStorage.getItem('cart') || '[]');
   if (cart.length > 0) {
     // Redirect to payment page if there are items in cart
-    window.location.href = 'payment.html';
+    window.location.href = 'cart.html';
   } else {
     // Show success message and redirect to home if no cart items
     alert('Address saved successfully! You can now add items to your cart.');

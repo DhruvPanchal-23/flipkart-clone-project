@@ -10,12 +10,46 @@
 <!-- ================= HEADER ================= -->
 <header class="header">
   <div class="header-container">
-    <h1 class="logo">Flipkart</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="#">Contact</a>
-      <a href="#">About</a>
-    </nav>
+
+    <!-- Logo -->
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/images/logoname.png" alt="Flipkart">
+      </a>
+    </div>
+
+    <!-- Search bar -->
+    <div class="search-box">
+      <input type="text" placeholder="Search for products" />
+      <button>
+        <span class="material-icons">search</span>
+      </button>
+    </div>
+
+    <!-- Cart -->
+    <div class="cart">
+      <a href="cart.html">
+        <span class="material-icons">shopping_cart</span>
+        <span class="cart-count">0</span>
+      </a>
+    </div>
+
+    <!-- Address -->
+    <div class="address-link">
+      <a href="address.html" title="Delivery Address">
+        <span class="material-icons">location_on</span>
+        <span class="address-text">Address</span>
+      </a>
+    </div>
+
+    <!-- Login -->
+    <div class="login-signup">
+      <a href="login.html" title="Login / Signup">
+        <span class="material-icons">account_circle</span>
+        <span class="auth-text">Login</span>
+      </a>
+    </div>
+
   </div>
 </header>
 
@@ -26,13 +60,56 @@
     <div class="login-banner">
       <img src="assets/images/banner.jpeg" alt="Banner">
     </div>
-    <h2>Login</h2>
 
-    <input type="text" id="username" placeholder="Enter Username">
-    <input type="password" id="password" placeholder="Enter Password">
+    <!-- Tab Navigation -->
+    <div class="tab-container">
+      <button class="tab-btn active" onclick="showLogin()">Login</button>
+      <button class="tab-btn" onclick="showSignup()">Sign Up</button>
+    </div>
 
-    <button onclick="login()">Login</button>
-    <p id="error"></p>
+    <!-- Login Form -->
+    <div id="login-form" class="form-container">
+      <h2>Login</h2>
+
+      <div class="form-group">
+        <input type="text" id="login-username" placeholder="Enter Username" required>
+      </div>
+
+      <div class="form-group">
+        <input type="password" id="login-password" placeholder="Enter Password" required>
+      </div>
+
+      <button class="login-btn" onclick="login()">Login</button>
+      <p id="login-error" class="error-message"></p>
+    </div>
+
+    <!-- Signup Form -->
+    <div id="signup-form" class="form-container" style="display: none;">
+      <h2>Sign Up</h2>
+
+      <div class="form-group">
+        <input type="text" id="signup-name" placeholder="Full Name" required>
+      </div>
+
+      <div class="form-group">
+        <input type="email" id="signup-email" placeholder="Email Address" required>
+      </div>
+
+      <div class="form-group">
+        <input type="text" id="signup-username" placeholder="Username" required>
+      </div>
+
+      <div class="form-group">
+        <input type="password" id="signup-password" placeholder="Password (min 6 characters)" required>
+      </div>
+
+      <div class="form-group">
+        <input type="password" id="signup-confirm-password" placeholder="Confirm Password" required>
+      </div>
+
+      <button class="signup-btn" onclick="signup()">Sign Up</button>
+      <p id="signup-error" class="error-message"></p>
+    </div>
   </div>
 </main>
 

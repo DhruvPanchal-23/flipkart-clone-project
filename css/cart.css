@@ -201,6 +201,43 @@
   align-items: center;
 }
 
+.saved-address {
+  width: 100%;
+}
+
+.address-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.deliver-to {
+  font-weight: 500;
+  color: #666;
+  font-size: 14px;
+}
+
+.change-address-btn {
+  background: #2874f0;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.change-address-btn:hover {
+  background: #1e5bb8;
+}
+
+.address-details {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #333;
+}
+
 .pincode-btn {
   background: #2874f0;
   color: white;

@@ -48,11 +48,11 @@ body {
 
 /* ================= LOGIN ================= */
 .login-container {
-  width: 380px;
+  width: 420px;
   background: white;
-  border-radius: 6px;
-  overflow: hidden; /* 🔥 Needed for banner */
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
 }
 
 /* Banner */
@@ -63,44 +63,104 @@ body {
   display: block;
 }
 
-/* Inner content */
-.login-container h2 {
-  text-align: center;
-  margin: 20px 0;
+/* Tab Navigation */
+.tab-container {
+  display: flex;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 15px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #6c757d;
+  transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+  background: white;
   color: #2874f0;
+  border-bottom: 3px solid #2874f0;
 }
 
-.login-container input {
-  width: 85%;
-  padding: 12px;
-  margin: 0 auto 15px;
-  display: block;
-  border: 1px solid #ccc;
+.tab-btn:hover:not(.active) {
+  background: #e9ecef;
+  color: #495057;
 }
 
-.login-container button {
-  width: 85%;
-  padding: 12px;
-  margin: 0 auto 15px;
-  display: block;
+/* Form Containers */
+.form-container {
+  padding: 30px;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2874f0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e9ecef;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #2874f0;
+  box-shadow: 0 0 0 3px rgba(40, 116, 240, 0.1);
+}
+
+.form-group input::placeholder {
+  color: #adb5bd;
+}
+
+/* Buttons */
+.login-btn, .signup-btn {
+  width: 100%;
+  padding: 14px;
   background: #2874f0;
   color: white;
   border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
 }
 
-.login-container button:hover {
+.login-btn:hover, .signup-btn:hover {
   background: #1a5fd0;
 }
 
-#error {
-  text-align: center;
-  color: red;
-  font-size: 13px;
-  margin-bottom: 15px;
+.login-btn:active, .signup-btn:active {
+  transform: translateY(1px);
 }
-.login-signup a {
-  cursor: pointer;
+
+/* Error Messages */
+.error-message {
+  text-align: center;
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 15px;
+  min-height: 20px;
 }
 
 /* ================= FOOTER ================= */

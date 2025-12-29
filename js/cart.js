@@ -80,6 +80,7 @@ function renderCart() {
   });
 
   updateTotals(cart);
+  renderAddress();
 }
 
 // Update price totals

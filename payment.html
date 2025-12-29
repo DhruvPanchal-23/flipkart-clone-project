@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Category Page | Flipkart Clone</title>
+  <title>Payment | Flipkart Clone</title>
 
   <!-- Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- Main CSS -->
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/checkout.css">
 </head>
 <body>
 
@@ -40,6 +41,14 @@
       </a>
     </div>
 
+    <!-- Address -->
+    <div class="address-link">
+      <a href="address.html" title="Delivery Address">
+        <span class="material-icons">location_on</span>
+        <span class="address-text">Address</span>
+      </a>
+    </div>
+
     <!-- Login -->
     <div class="login-signup">
       <a href="login.html">
@@ -48,32 +57,14 @@
       </a>
     </div>
 
-
+  </div>
 </header>
 
 <!-- ================= MAIN CONTENT ================= -->
 <main style="margin-top: 80px;">
+  <div class="checkout-wrapper">
 
-  <section class="product-section">
-    <h2 class="section-title">Category Name</h2>
-
-    <!-- Sorting Dropdown -->
-    <div class="sorting-container">
-      <label for="sort-select">Sort by:</label>
-      <select id="sort-select">
-        <option value="default">Default</option>
-        <option value="price-low-high">Price: Low to High</option>
-        <option value="price-high-low">Price: High to Low</option>
-        <option value="name-a-z">Name: A to Z</option>
-        <option value="name-z-a">Name: Z to A</option>
-      </select>
-    </div>
-
-    <div class="product-grid" data-category="home">
-      <!-- Products will be rendered here using JS -->
-    </div>
-  </section>
-
+    <!-- Checkout -->
 </main>
 
 <!-- ================= FOOTER ================= -->
@@ -82,7 +73,7 @@
 
     <div class="footer-section footer-logo">
       <img src="assets/images/logoname.png" alt="Flipkart Logo">
-      <p>India’s leading online shopping destination</p>
+      <p>India's leading online shopping destination</p>
     </div>
 
     <div class="footer-section">
@@ -125,10 +116,9 @@
 </footer>
 
 <!-- ================= SCRIPTS ================= -->
-<script src="../js/data.js"></script>
-<script src="../js/home.js"></script>
-<script src="../js/user.js"></script>
-
+<script src="js/data.js"></script>
+<script src="js/payment.js"></script>
+<script src="js/user.js"></script>
 
 </body>
 </html>

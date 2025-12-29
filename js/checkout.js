@@ -8,9 +8,6 @@ const totalPriceEl = document.getElementById('total-price');
 const discountAmountEl = document.getElementById('discount-amount');
 const finalTotalEl = document.getElementById('final-total');
 const placeOrderBtn = document.getElementById('place-order-btn');
-const downloadPdfBtn = document.getElementById('download-pdf-btn');
-const orderSuccessModal = document.getElementById('order-success-modal');
-const orderIdEl = document.getElementById('order-id');
 
 // Cart utilities
 function getCart() {
@@ -136,98 +133,14 @@ function placeOrder() {
   localStorage.removeItem('cart');
   updateCartCount();
 
-  // Show success modal
-  orderIdEl.textContent = orderId;
-  orderSuccessModal.style.display = 'block';
-
-  // Update button
-  placeOrderBtn.style.display = 'none';
-  downloadPdfBtn.style.display = 'block';
-}
-
-// Download order PDF
-function downloadOrderPDF() {
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
-
-  // Get order data
-  const orders = JSON.parse(localStorage.getItem('orders') || '[]');
-  const latestOrder = orders[orders.length - 1];
-
-  if (!latestOrder) {
-    alert('No order found to generate PDF!');
-    return;
-  }
-
-  const { orderId, items, address, totalAmount, orderDate } = latestOrder;
-
-  // PDF Header
-  doc.setFontSize(20);
-  doc.text('Flipkart Order Invoice', 105, 20, { align: 'center' });
-
-  doc.setFontSize(12);
-  doc.text(`Order ID: ${orderId}`, 20, 40);
-  doc.text(`Order Date: ${new Date(orderDate).toLocaleDateString()}`, 20, 50);
-
-  // Delivery Address
-  doc.setFontSize(14);
-  doc.text('Delivery Address:', 20, 70);
-  doc.setFontSize(12);
-  doc.text(`${address.name}`, 20, 80);
-  doc.text(`${address.address}`, 20, 90);
-  doc.text(`${address.city}, ${address.state} - ${address.pincode}`, 20, 100);
-  doc.text(`Phone: ${address.phone}`, 20, 110);
-
-  // Order Items
-  doc.setFontSize(14);
-  doc.text('Order Items:', 20, 130);
-
-  let yPosition = 140;
-  doc.setFontSize(12);
-
-  items.forEach((item, index) => {
-    const itemTotal = item.price * item.quantity;
-    doc.text(`${index + 1}. ${item.name}`, 20, yPosition);
-    doc.text(`₹${item.price.toLocaleString()} x ${item.quantity} = ₹${itemTotal.toLocaleString()}`, 150, yPosition);
-    yPosition += 10;
-  });
-
-  // Price Summary
-  yPosition += 10;
-  const subtotal = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  const discount = Math.round(subtotal * 0.05);
-  const deliveryCharges = 40;
-
-  doc.text(`Subtotal: ₹${subtotal.toLocaleString()}`, 20, yPosition);
-  yPosition += 10;
-  doc.text(`Discount (5%): -₹${discount.toLocaleString()}`, 20, yPosition);
-  yPosition += 10;
-  doc.text(`Delivery Charges: ₹${deliveryCharges}`, 20, yPosition);
-  yPosition += 10;
-  doc.setFontSize(14);
-  doc.text(`Total Amount: ₹${totalAmount.toLocaleString()}`, 20, yPosition);
-
-  // Footer
-  yPosition += 30;
-  doc.setFontSize(10);
-  doc.text('Thank you for shopping with Flipkart!', 105, yPosition, { align: 'center' });
-  doc.text('For any queries, contact customer support.', 105, yPosition + 10, { align: 'center' });
-
-  // Save PDF
-  doc.save(`Flipkart_Order_${orderId}.pdf`);
+  // Redirect to payment page
+  window.location.href = 'payment.html';
 }
 
 // Continue shopping
 function continueShopping() {
   window.location.href = 'index.html';
 }
-
-// Close modal when clicking outside
-window.onclick = function(event) {
-  if (event.target === orderSuccessModal) {
-    orderSuccessModal.style.display = 'none';
-  }
-};
 
 // Initialize page
 document.addEventListener('DOMContentLoaded', () => {
