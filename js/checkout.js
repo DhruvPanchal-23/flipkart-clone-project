@@ -111,28 +111,7 @@ function placeOrder() {
     return;
   }
 
-  // Generate order ID
-  const orderId = 'ORD' + Date.now() + Math.random().toString(36).substr(2, 5).toUpperCase();
-
-  // Create order object
-  const order = {
-    orderId: orderId,
-    items: cart,
-    address: address,
-    totalAmount: parseInt(finalTotalEl.textContent.replace(/,/g, '')),
-    orderDate: new Date().toISOString(),
-    status: 'Confirmed'
-  };
-
-  // Save order to localStorage (in a real app, this would be sent to server)
-  const orders = JSON.parse(localStorage.getItem('orders') || '[]');
-  orders.push(order);
-  localStorage.setItem('orders', JSON.stringify(orders));
-
-  // Clear cart
-  localStorage.removeItem('cart');
-  updateCartCount();
-
+  // Don't clear cart here - let payment page handle it
   // Redirect to payment page
   window.location.href = 'payment.html';
 }
