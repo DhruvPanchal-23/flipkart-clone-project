@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Details | Flipkart Clone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-container">
+    <a href="index.html" class="logo">
+      <img src="assets/images/logoname.png" alt="Flipkart">
+    </a>
+  </div>
+</header>
+
+<!-- PRODUCT DETAILS -->
+<section class="product-details">
+
+  <div class="product-container">
+
+    <!-- IMAGE -->
+    <div class="product-image">
+      <img id="productImage" alt="Product Image">
+    </div>
+
+    <!-- INFO -->
+    <div class="product-info">
+      <h1 id="productName"></h1>
+
+      <div class="rating" id="productRating"></div>
+
+      <div class="price" id="productPrice"></div>
+
+      <p class="description" id="productDescription"></p>
+
+      <!-- QUANTITY -->
+      <div class="quantity-selector">
+        <button id="qtyMinus">−</button>
+        <span id="quantityValue">1</span>
+        <button id="qtyPlus">+</button>
+      </div>
+
+      <!-- ADD TO CART -->
+      <button id="addToCartBtn" class="add-to-cart">
+        Add to Cart
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- JS -->
+<script src="js/data.js"></script>
+<script src="js/product.js"></script>
+
+</body>
+</html>

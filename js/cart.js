@@ -143,3 +143,25 @@ function goToCheckout() {
 function goToAddress() {
   window.location.href = "address.html";
 }
+function getCart() {
+  return JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+function saveCart(cart) {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function addToCart(product) {
+  const cart = getCart();
+
+  const existingItem = cart.find(item => item.id === product.id);
+
+  if (existingItem) {
+    existingItem.qty += 1;
+  } else {
+    cart.push({ ...product, qty: 1 });
+  }
+
+  saveCart(cart);
+  alert("Product added to cart!");
+}

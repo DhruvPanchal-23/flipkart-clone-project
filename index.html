@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flipkart Clone - Online Shopping</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flipkart Clone - Online Shopping</title>
+
+  <!-- Google Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header class="header">
+
+<!-- ================= HEADER ================= -->
+<header class="header">
   <div class="header-container">
 
     <!-- Logo -->
@@ -18,9 +24,9 @@
       </a>
     </div>
 
-    <!-- Search bar -->
+    <!-- Search -->
     <div class="search-box">
-      <input type="text" placeholder="Search for products" />
+      <input type="text" placeholder="Search for products">
       <button id="searchBtn">
         <span class="material-icons">search</span>
       </button>
@@ -36,18 +42,14 @@
 
     <!-- Address -->
     <div class="address-link">
-      <a href="address.html" title="Delivery Address">
-        <span class="material-icons">location_on</span>
-        <span class="address-text">Address</span>
-      </a>
+      <span class="material-icons">location_on</span>
+      <span>Address</span>
     </div>
 
     <!-- Login -->
     <div class="login-signup">
-      <a href="login.html" title="Login / Signup">
-        <span class="material-icons">account_circle</span>
-        <span class="auth-text">Login</span>
-      </a>
+      <span class="material-icons">account_circle</span>
+      <span>Login</span>
     </div>
 
     <!-- Hamburger -->
@@ -55,185 +57,121 @@
       <span class="material-icons">menu</span>
     </div>
 
-    <!-- Side Menu -->
-    <div class="side-menu" id="sideMenu">
-      <span class="close-btn" onclick="toggleMenu()">×</span>
-
-      <h3>Categories</h3>
-      <a href="#" data-category="all">All</a>
-      <a href="#" data-category="mobiles">Mobiles & Tablets</a>
-      <a href="#" data-category="fashion">Fashion</a>
-      <a href="#" data-category="tv">TV & Appliances</a>
-      <a href="#" data-category="home">Home & Furniture</a>
-      <a href="#" data-category="beauty">Beauty</a>
-      <a href="#" data-category="grocery">Grocery</a>
-      <a href="#" data-category="sports">Sports</a>
-      <a href="#" data-category="electronic">Electronics</a>
-      <a href="#" data-category="toys">Toys</a>
-      <a href="#" data-category="laptops">Laptops</a>
-    </div>
-
   </div>
 </header>
 
-  </header>
-  <!----Catagorie-Section --->
+<!-- ================= CATEGORIES ================= -->
 <section class="catagories-section">
   <div class="categories-container">
 
-    <a href="html/mobileAndTablet.html" data-category="mobiles">
-      <img src="assets/images/iphone.jpg" alt="Mobiles & Tablets">
-      <span>Mobiles & Tablets</span>
+    <a href="#" data-category="mobiles">
+      <img src="assets/images/iphone.jpg">
+      <span>Mobiles</span>
     </a>
 
-    <a href="html/fashion.html" data-category="fashion">
-      <img src="assets/images/fashion.jpg" alt="Fashion">
-      <span>Fashion</span> 
+    <a href="#" data-category="fashion">
+      <img src="assets/images/fashion.jpg">
+      <span>Fashion</span>
     </a>
 
-    <a href="html/tvAppliances.html" data-category="tv">
-      <img src="assets/images/tv2.jpg" alt="TV & Appliances">
+    <a href="#" data-category="tv">
+      <img src="assets/images/tv2.jpg">
       <span>TV & Appliances</span>
     </a>
 
-    <a href="html/homeAndFurniture.html" data-category="home">
-      <img src="assets/images/furniture.jpg" alt="Home & Furniture">
-      <span>Home & Furniture</span>
+    <a href="#" data-category="home">
+      <img src="assets/images/furniture.jpg">
+      <span>Home</span>
     </a>
 
-    <a href="html/beautyProduct.html" data-category="beauty">
-    <img src="assets/images/makeup6.jpeg" alt="Beauty">
-    <span>Beauty</span>
-  </a>
+    <a href="#" data-category="beauty">
+      <img src="assets/images/makeup6.jpeg">
+      <span>Beauty</span>
+    </a>
 
-  <a href="html/grocery.html" data-category="grocery">
-    <img src="assets/images/Grocery2.jpg" alt="Grocery">
-    <span>Grocery</span>
-  </a>
+    <a href="#" data-category="grocery">
+      <img src="assets/images/Grocery2.jpg">
+      <span>Grocery</span>
+    </a>
 
-  <a href="html/sports.html" data-category="sports">
-    <img src="assets/images/sports1.jpg" alt="Sports">
-    <span>Sports</span>
-  </a>
+    <a href="#" data-category="sports">
+      <img src="assets/images/sports1.jpg">
+      <span>Sports</span>
+    </a>
 
-  <a href="html/electronic.html" data-category="electronic">
-    <img src="assets/images/headphone.jpg" alt="Electronics">
-    <span>Electronics</span>
-  </a>
+    <a href="#" data-category="laptops">
+      <img src="assets/images/laptop.jpg">
+      <span>Laptops</span>
+    </a>
 
-  <a href="html/toys.html" data-category="toys">
-    <img src="assets/images/toys.webp" alt="Toys">
-    <span>Toys</span>
-  </a>
-
-  <a href="html/laptops.html" data-category="laptop">
-    <img src="assets/images/laptop.jpg" alt="Laptops">
-    <span>Laptops</span>
-  </a>
   </div>
 </section>
 
-<!---FLIPKART-BANNER-CAROUSEL--->
+<!-- ================= BANNER ================= -->
 <section class="flipkart-banner">
-  <div class="slideshow-container">
-
-    <div class="mySlides fade">
-      <img src="assets/images/banner1.webp" style="width:100%">
-    </div>
-
-    <div class="mySlides fade">
-      <img src="assets/images/banner2.webp" style="width:100%">
-    </div>
-
-    <div class="mySlides fade">
-      <img src="assets/images/banner6.webp" style="width:100%">
-    </div>
-
-    <div class="mySlides fade">
-      <img src="assets/images/banner4.webp" style="width:100%">
-    </div>
-
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-    <div class="dots">
-      <span class="dot" onclick="currentSlide(1)"></span>
-      <span class="dot" onclick="currentSlide(2)"></span>
-      <span class="dot" onclick="currentSlide(3)"></span>
-      <span class="dot" onclick="currentSlide(4)"></span>
-    </div>
-  </div>
+  <img src="assets/images/banner1.webp" style="width:100%">
 </section>
-<!----PRODUCT SECTION---->
-<section class="product-section"> 
+
+<!-- ================= PRODUCTS ================= -->
+<section class="product-section">
+
   <h2 class="section-title">Top Deals</h2>
 
-  <!-- Sorting Dropdown -->
+  <!-- Sorting -->
   <div class="sorting-container">
-    <label for="sort-select">Sort by:</label>
+    <label>Sort by:</label>
     <select id="sort-select">
       <option value="default">Default</option>
       <option value="price-low-high">Price: Low to High</option>
       <option value="price-high-low">Price: High to Low</option>
-      <option value="name-a-z">Name: A to Z</option>
-      <option value="name-z-a">Name: Z to A</option>
+      <option value="name-a-z">Name: A-Z</option>
+      <option value="name-z-a">Name: Z-A</option>
     </select>
   </div>
 
+  <!-- PRODUCT GRID (JS FILLS THIS) -->
   <div class="product-grid">
-    <!-- Products will be dynamically rendered here by JavaScript -->
+    <!-- Dynamic product cards from home.js -->
   </div>
+
 </section>
 
+<!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="footer-container">
 
-    <!-- Logo Section -->
-    <div class="footer-section footer-logo">
-      <img src="assets/images/logoname.png" alt="Flipkart Logo" />
+    <div class="footer-section">
+      <img src="assets/images/logoname.png" width="120">
       <p>India’s leading online shopping destination</p>
     </div>
 
-    <!-- About -->
     <div class="footer-section">
       <h3>About</h3>
-      <a href="#">Contact Us</a>
       <a href="#">About Us</a>
       <a href="#">Careers</a>
-      <a href="#">Flipkart Stories</a>
     </div>
 
-    <!-- Help -->
     <div class="footer-section">
       <h3>Help</h3>
       <a href="#">Payments</a>
-      <a href="#">Shipping</a>
-      <a href="#">Cancellation & Returns</a>
-      <a href="#">FAQs</a>
+      <a href="#">Returns</a>
     </div>
 
-    <!-- Policy -->
     <div class="footer-section">
       <h3>Policy</h3>
-      <a href="#">Return Policy</a>
-      <a href="#">Terms of Use</a>
-      <a href="#">Security</a>
       <a href="#">Privacy</a>
+      <a href="#">Security</a>
     </div>
-
-    <!-- Social -->
-  <div class="footer-section">
-  <h3>Follow Us</h3>
-  <a href="https://www.facebook.com/flipkart" target="_blank">Facebook</a>
-  <a href="https://twitter.com/flipkart" target="_blank">Twitter</a>
-  <a href="https://www.instagram.com/flipkart" target="_blank">Instagram</a>
-  <a href="https://www.youtube.com/@Flipkart" target="_blank">YouTube</a>
-</div>
 
   </div>
 
-  <div class="footer-bottom">© 2025 Flipkart Clone. All Rights Reserved.</div>
+  <div class="footer-bottom">
+    © 2025 Flipkart Clone. All Rights Reserved.
+  </div>
 </footer>
+
+<!-- ================= JS FILES ================= -->
+ 
 <script src="js/data.js"></script>
 <script src="js/user.js"></script>
 <script src="js/home.js"></script>

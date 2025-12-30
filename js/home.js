@@ -1,26 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  //---------------------------- DOM ELEMENTS ---------------------------------
+  /* ================= DOM ELEMENTS ================= */
   const productGrid = document.querySelector(".product-grid");
   const searchInput = document.querySelector(".search-box input");
   const searchBtn = document.getElementById("searchBtn");
   const sortSelect = document.getElementById("sort-select");
-  const sideMenuLinks = document.querySelectorAll(".side-menu a");
   const cartCount = document.querySelector(".cart-count");
+  const categoryLinks = document.querySelectorAll(".categories-container a");
 
   if (!productGrid || typeof products === "undefined") {
-    console.error("Product grid or products not loaded");
+    console.error("Products not loaded");
     return;
   }
 
-  //----------------------------- CART UTILITIES --------------------------------
+  /* ================= CART FUNCTIONS ================= */
   function getCart() {
     return JSON.parse(localStorage.getItem("cart")) || [];
-  }
-
-  function saveCart(cart) {
-    localStorage.setItem("cart", JSON.stringify(cart));
-    updateCartCount();
   }
 
   function updateCartCount() {
@@ -29,26 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (cartCount) cartCount.textContent = total;
   }
 
-  //----------------------------- RENDER PRODUCTS --------------------------------
-  function renderProducts(productList, sortBy = "default") {
-
-    let list = [...productList];
-
-    switch (sortBy) {
-      case "price-low-high":
-        list.sort((a, b) => a.price - b.price);
-        break;
-      case "price-high-low":
-        list.sort((a, b) => b.price - a.price);
-        break;
-      case "name-a-z":
-        list.sort((a, b) => a.name.localeCompare(b.name));
-        break;
-      case "name-z-a":
-        list.sort((a, b) => b.name.localeCompare(a.name));
-        break;
-    }
-
+  /* ================= RENDER PRODUCTS ================= */
+  function renderProducts(list) {
     productGrid.innerHTML = "";
 
     if (list.length === 0) {
@@ -61,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       card.className = "product-card";
 
       card.innerHTML = `
-        <img src="../${product.image}" alt="${product.name}">
+        <img src="${product.image}" alt="${product.name}">
         <h3>${product.name}</h3>
         <div class="product-rating">⭐ ${product.rating}</div>
         <div class="product-price">₹${product.price.toLocaleString()}</div>
@@ -70,71 +47,86 @@ document.addEventListener("DOMContentLoaded", () => {
         </button>
       `;
 
+      // Click product → Product Detail Page
+      card.addEventListener("click", e => {
+        if (e.target.classList.contains("add-cart")) return;
+        window.location.href = `product.html?id=${product.id}`;
+      });
+
       productGrid.appendChild(card);
     });
   }
 
-  //-------------------------- INITIAL LOAD -------------------------------------
-  const category = productGrid.dataset.category;
+  /* ================= SORT ================= */
+  function sortProducts(list, type) {
+    const sorted = [...list];
 
-  let currentProducts = category
-    ? products.filter(p => p.category === category)
-    : products;
+    switch (type) {
+      case "price-low-high":
+        sorted.sort((a, b) => a.price - b.price);
+        break;
+      case "price-high-low":
+        sorted.sort((a, b) => b.price - a.price);
+        break;
+      case "name-a-z":
+        sorted.sort((a, b) => a.name.localeCompare(b.name));
+        break;
+      case "name-z-a":
+        sorted.sort((a, b) => b.name.localeCompare(a.name));
+        break;
+    }
 
+    return sorted;
+  }
+
+  /* ================= INITIAL LOAD ================= */
+  let currentProducts = [...products];
   renderProducts(currentProducts);
   updateCartCount();
 
-  //-------------------------- SORT ---------------------------------------------
+  /* ================= SORT EVENT ================= */
   sortSelect?.addEventListener("change", () => {
-    renderProducts(currentProducts, sortSelect.value);
+    currentProducts = sortProducts(currentProducts, sortSelect.value);
+    renderProducts(currentProducts);
   });
 
-  //-------------------------- SEARCH -------------------------------------------
-  searchBtn?.addEventListener("click", () => {
+  /* ================= SEARCH ================= */
+  function handleSearch() {
     const query = searchInput.value.trim().toLowerCase();
 
-    if (!query) {
-      currentProducts = category
-        ? products.filter(p => p.category === category)
-        : products;
-    } else {
-      currentProducts = products.filter(p =>
-        p.name.toLowerCase().includes(query) ||
-        p.category.toLowerCase().includes(query)
-      );
-    }
+    currentProducts = products.filter(p =>
+      p.name.toLowerCase().includes(query) ||
+      p.category.toLowerCase().includes(query)
+    );
 
-    renderProducts(currentProducts, sortSelect?.value);
-  });
+    renderProducts(currentProducts);
+  }
 
+  searchBtn?.addEventListener("click", handleSearch);
   searchInput?.addEventListener("keypress", e => {
-    if (e.key === "Enter") searchBtn.click();
+    if (e.key === "Enter") handleSearch();
   });
 
-  //-------------------------- CATEGORY MENU ------------------------------------
-  sideMenuLinks.forEach(link => {
+  /* ================= CATEGORY FILTER ================= */
+  categoryLinks.forEach(link => {
     link.addEventListener("click", e => {
       e.preventDefault();
-      const cat = link.dataset.category;
+      const category = link.dataset.category;
 
-      currentProducts = cat === "all"
-        ? products
-        : products.filter(p => p.category === cat);
-
-      renderProducts(currentProducts, sortSelect?.value);
+      currentProducts = products.filter(p => p.category === category);
+      renderProducts(currentProducts);
     });
   });
 
-  //-------------------------- ADD TO CART --------------------------------------
+  /* ================= ADD TO CART ================= */
   productGrid.addEventListener("click", e => {
     if (!e.target.classList.contains("add-cart")) return;
 
     const id = Number(e.target.dataset.id);
     const product = products.find(p => p.id === id);
-
     let cart = getCart();
-    const existing = cart.find(item => item.id === id);
 
+    const existing = cart.find(item => item.id === id);
     if (existing) {
       existing.quantity += 1;
     } else {
@@ -147,7 +139,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    saveCart(cart);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
 
     e.target.textContent = "Added ✓";
     setTimeout(() => e.target.textContent = "Add to Cart", 800);
