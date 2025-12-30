@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Category Page | Flipkart Clone</title>
+  <title>Beauty Products | Flipkart Clone</title>
 
   <!-- Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- Main CSS -->
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
 
@@ -19,22 +19,22 @@
 
     <!-- Logo -->
     <div class="logo">
-      <a href="index.html">
-        <img src="assets/images/logoname.png" alt="Flipkart">
+      <a href="../index.html">
+        <img src="../assets/images/logoname.png" alt="Flipkart">
       </a>
     </div>
 
     <!-- Search -->
     <div class="search-box">
       <input type="text" placeholder="Search for products" />
-      <button>
+      <button id="searchBtn">
         <span class="material-icons">search</span>
       </button>
     </div>
 
     <!-- Cart -->
     <div class="cart">
-      <a href="cart.html">
+      <a href="../cart.html">
         <span class="material-icons">shopping_cart</span>
         <span class="cart-count">0</span>
       </a>
@@ -42,20 +42,20 @@
 
     <!-- Login -->
     <div class="login-signup">
-      <a href="login.html">
+      <a href="../login.html">
         <span class="material-icons">account_circle</span>
         <span class="auth-text">Login</span>
       </a>
     </div>
 
-
+  </div>
 </header>
 
 <!-- ================= MAIN CONTENT ================= -->
 <main style="margin-top: 80px;">
 
   <section class="product-section">
-    <h2 class="section-title">Category Name</h2>
+    <h2 class="section-title">Beauty Products</h2>
 
     <!-- Sorting Dropdown -->
     <div class="sorting-container">
@@ -69,8 +69,9 @@
       </select>
     </div>
 
+    <!-- PRODUCT GRID -->
     <div class="product-grid" data-category="beauty">
-      <!-- Products will be rendered here using JS -->
+      <!-- Products rendered by JS -->
     </div>
   </section>
 
@@ -81,7 +82,7 @@
   <div class="footer-container">
 
     <div class="footer-section footer-logo">
-      <img src="assets/images/logoname.png" alt="Flipkart Logo">
+      <img src="../assets/images/logoname.png" alt="Flipkart Logo">
       <p>India’s leading online shopping destination</p>
     </div>
 
@@ -124,11 +125,10 @@
   </div>
 </footer>
 
-<!-- ================= SCRIPTS ================= -->
+<!-- ================= SCRIPTS (ORDER MATTERS) ================= -->
 <script src="../js/data.js"></script>
 <script src="../js/home.js"></script>
 <script src="../js/user.js"></script>
-
 
 </body>
 </html>
