@@ -24,6 +24,28 @@ document.addEventListener("DOMContentLoaded", () => {
 ✔ Premium Quality
 ✔ Flipkart Assured`;
 
+  // Cart Functions
+  function getCart() {
+    return JSON.parse(localStorage.getItem("cart")) || [];
+  }
+
+  function saveCart(cart) {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
+  // Update cart count display
+  function updateCartCount() {
+    const cartCount = document.querySelector(".cart-count");
+    if (cartCount) {
+      const cart = getCart();
+      const total = cart.reduce((sum, item) => sum + item.quantity, 0);
+      cartCount.textContent = total;
+    }
+  }
+
+  // Initialize cart count on page load
+  updateCartCount();
+
   // Quantity
   let quantity = 1;
   const qtyValue = document.getElementById("quantityValue");
@@ -40,15 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Cart
-  function getCart() {
-    return JSON.parse(localStorage.getItem("cart")) || [];
-  }
-
-  function saveCart(cart) {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }
-
+  // Add to cart button
   document.getElementById("addToCartBtn").addEventListener("click", () => {
     let cart = getCart();
     const existing = cart.find(item => item.id === product.id);
@@ -66,6 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     saveCart(cart);
+    updateCartCount();
 
     const btn = document.getElementById("addToCartBtn");
     btn.innerText = "Added ✓";

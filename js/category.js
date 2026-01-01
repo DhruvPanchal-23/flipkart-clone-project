@@ -2,14 +2,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ================= DOM ELEMENTS ================= */
   const productGrid = document.querySelector(".product-grid");
-  const searchInput = document.querySelector(".search-box input");
-  const searchBtn = document.getElementById("searchBtn");
   const sortSelect = document.getElementById("sort-select");
   const cartCount = document.querySelector(".cart-count");
-  const categoryLinks = document.querySelectorAll(".categories-container a");
+  const sectionTitle = document.querySelector(".section-title");
 
   if (!productGrid || typeof products === "undefined") {
     console.error("Products not loaded");
+    return;
+  }
+
+  // Get category from data-category attribute on product-grid
+  const category = productGrid.getAttribute("data-category");
+
+  if (!category) {
+    console.error("Category not specified");
     return;
   }
 
@@ -25,11 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ================= RENDER PRODUCTS ================= */
-  window.renderProducts = function(list) {
+  function renderProducts(list) {
     productGrid.innerHTML = "";
 
     if (list.length === 0) {
-      productGrid.innerHTML = "<p>No products found</p>";
+      productGrid.innerHTML = "<p>No products found in this category</p>";
       return;
     }
 
@@ -38,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
       card.className = "product-card";
 
       card.innerHTML = `
-        <img src="${product.image}" alt="${product.name}">
+        <img src="../${product.image}" alt="${product.name}">
         <h3>${product.name}</h3>
         <div class="product-rating">⭐ ${product.rating}</div>
         <div class="product-price">₹${product.price.toLocaleString()}</div>
@@ -50,14 +56,14 @@ document.addEventListener("DOMContentLoaded", () => {
       // Click product → Product Detail Page
       card.addEventListener("click", e => {
         if (e.target.classList.contains("add-cart")) return;
-        window.location.href = `product.html?id=${product.id}`;
+        window.location.href = `../product.html?id=${product.id}`;
       });
 
       productGrid.appendChild(card);
     });
   }
 
-  /* ================= SORT ================= */
+  /* ================= SORT PRODUCTS ================= */
   function sortProducts(list, type) {
     const sorted = [...list];
 
@@ -79,12 +85,20 @@ document.addEventListener("DOMContentLoaded", () => {
     return sorted;
   }
 
-  /* ================= INITIAL LOAD ================= */
-  let currentProducts = [...products];
-  renderProducts(currentProducts);
+  /* ================= FILTER BY CATEGORY ================= */
+  let categoryProducts = products.filter(p => p.category === category);
+
+  // Update section title with category name
+  if (sectionTitle) {
+    const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
+    sectionTitle.textContent = categoryName;
+  }
+
+  // Initial render
+  renderProducts(categoryProducts);
   updateCartCount();
 
-  /* ================= PRICE RANGE SLIDER ================= */
+  /* ================= PRICE RANGE SLIDER (CATEGORY) ================= */
   const priceRange = document.getElementById("price-range");
   const rangeBubble = document.getElementById("rangeBubble");
   const minInput = document.getElementById("minInput");
@@ -92,56 +106,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (priceRange && rangeBubble && minInput && maxInput) {
     const minPrice = Number(priceRange.min) || 0;
-    const absMax = Math.max(...products.map(p => p.price));
-    priceRange.max = absMax;
+    const catMax = Math.max(...products.filter(p => p.category === category).map(p => p.price));
+    priceRange.max = catMax;
     priceRange.min = 0;
-    // set min/max attributes for number inputs
-    minInput.min = 0;
-    minInput.max = absMax;
-    maxInput.min = 0;
-    maxInput.max = absMax;
-    // Default to 0 which means "All products"
-    priceRange.value = 0;
+    priceRange.value = 0; // 0 means show all in this category
 
-    // Initial values
+    // set min/max attributes for inputs
+    minInput.min = 0;
+    minInput.max = catMax;
+    maxInput.min = 0;
+    maxInput.max = catMax;
+
     minInput.value = minPrice;
-    maxInput.value = absMax;
+    maxInput.value = catMax;
 
     const updateBubble = () => {
       const val = Number(priceRange.value);
-      const percent = (absMax === minPrice) ? 0 : ((val - minPrice) / (absMax - minPrice)) * 100;
+      const percent = (catMax === minPrice) ? 0 : ((val - minPrice) / (catMax - minPrice)) * 100;
       rangeBubble.style.left = `${percent}%`;
       rangeBubble.textContent = val === 0 ? "All" : `₹${val.toLocaleString()}`;
-      // If slider used, update maxInput where appropriate
       if (val !== 0) maxInput.value = val;
     };
 
-    // Initial position
     updateBubble();
 
     const applyFilter = () => {
       const minVal = Number(minInput.value) || 0;
       let maxVal = Number(maxInput.value) || 0;
-
-      // if user sets maxInput to 0, interpret as show all
       const useAll = maxVal === 0;
 
       if (useAll) {
-        currentProducts = [...products];
+        categoryProducts = products.filter(p => p.category === category);
       } else {
         if (maxVal < minVal) maxVal = minVal;
-        currentProducts = products.filter(p => p.price >= minVal && p.price <= maxVal);
+        categoryProducts = products.filter(p => p.category === category && p.price >= minVal && p.price <= maxVal);
       }
 
-      currentProducts = sortProducts(currentProducts, sortSelect?.value || "default");
-      renderProducts(currentProducts);
+      categoryProducts = sortProducts(categoryProducts, sortSelect?.value || "default");
+      renderProducts(categoryProducts);
     };
 
     priceRange.addEventListener("input", () => {
       const selectedMax = Number(priceRange.value);
       updateBubble();
       if (selectedMax === 0) {
-        maxInput.value = 0; // show all
+        maxInput.value = 0;
       } else {
         maxInput.value = selectedMax;
       }
@@ -149,22 +158,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     maxInput.addEventListener("input", () => {
-      // keep slider in sync (slider 0 reserved for 'All')
       const val = Number(maxInput.value) || 0;
-      if (val === 0) {
-        priceRange.value = 0;
-      } else {
-        priceRange.value = Math.min(val, absMax);
-      }
+      if (val === 0) priceRange.value = 0; else priceRange.value = Math.min(val, catMax);
       updateBubble();
       applyFilter();
     });
 
     minInput.addEventListener("input", () => {
-      // clamp min to [0, absMax]
       let val = Number(minInput.value) || 0;
       if (val < 0) val = 0;
-      if (val > absMax) val = absMax;
+      if (val > catMax) val = catMax;
       minInput.value = val;
       applyFilter();
     });
@@ -172,33 +175,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ================= SORT EVENT ================= */
   sortSelect?.addEventListener("change", () => {
-    currentProducts = sortProducts(currentProducts, sortSelect.value);
-    renderProducts(currentProducts);
-  });
-
-  /* ================= SEARCH ================= */
-  function handleSearch() {
-    const query = searchInput.value.trim().toLowerCase();
-
-    currentProducts = products.filter(p =>
-      p.name.toLowerCase().includes(query) ||
-      p.category.toLowerCase().includes(query)
-    );
-
-    renderProducts(currentProducts);
-  }
-
-  searchBtn?.addEventListener("click", handleSearch);
-  searchInput?.addEventListener("keypress", e => {
-    if (e.key === "Enter") handleSearch();
-  });
-
-  /* ================= CATEGORY FILTER ================= */
-  categoryLinks.forEach(link => {
-    link.addEventListener("click", e => {
-      // Allow normal navigation - don't prevent default
-      // The links have proper href attributes to navigate to category pages
-    });
+    categoryProducts = sortProducts(categoryProducts, sortSelect.value);
+    renderProducts(categoryProducts);
   });
 
   /* ================= ADD TO CART ================= */

@@ -143,23 +143,18 @@ function goToCheckout() {
 function goToAddress() {
   window.location.href = "address.html";
 }
-function getCart() {
-  return JSON.parse(localStorage.getItem("cart")) || [];
-}
-
-function saveCart(cart) {
-  localStorage.setItem("cart", JSON.stringify(cart));
-}
-
+// addToCart helper to be used by other pages
 function addToCart(product) {
   const cart = getCart();
-
   const existingItem = cart.find(item => item.id === product.id);
 
   if (existingItem) {
-    existingItem.qty += 1;
+    // support older `qty` key if present
+    existingItem.quantity = (existingItem.quantity || existingItem.qty || 0) + 1;
+    // normalize by removing legacy `qty`
+    if (existingItem.qty) delete existingItem.qty;
   } else {
-    cart.push({ ...product, qty: 1 });
+    cart.push({ id: product.id, name: product.name, price: product.price, image: product.image, quantity: 1 });
   }
 
   saveCart(cart);

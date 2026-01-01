@@ -51,7 +51,21 @@ function updateAuthDisplay() {
   }
 }
 
+// Handle address icon click
+function setupAddressLink() {
+  const addressLink = document.querySelector('.address-link');
+  if (addressLink) {
+    addressLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.location.href = 'address.html';
+    });
+    // Make it clickable with pointer cursor
+    addressLink.style.cursor = 'pointer';
+  }
+}
+
 // Initialize user display when page loads
 document.addEventListener('DOMContentLoaded', function() {
   updateAuthDisplay();
+  setupAddressLink();
 });

@@ -53,63 +53,126 @@
     </div>
 
     <!-- Hamburger -->
-    <div class="hamburger" id="hamburger">
-      <span class="material-icons">menu</span>
-    </div>
+<div class="hamburger" id="hamburger">
+  <span class="material-icons">menu</span>
+</div>
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
+
+<!-- Side Menu -->
+<div class="side-menu" id="sideMenu">
+  <span class="material-icons close-btn" id="closeBtn">close</span>
+
+  <h3>Categories</h3>
+  <a href="#" data-category="all">All</a>
+  <a href="#" data-category="mobiles">Mobiles & Tablets</a>
+  <a href="#" data-category="fashion">Fashion</a>
+  <a href="#" data-category="tv">TV & Appliances</a>
+  <a href="#" data-category="home">Home & Furniture</a>
+  <a href="#" data-category="beauty">Beauty</a>
+  <a href="#" data-category="grocery">Grocery</a>
+  <a href="#" data-category="sports">Sports</a>
+  <a href="#" data-category="electronic">Electronics</a>
+  <a href="#" data-category="toys">Toys</a>
+  <a href="#" data-category="laptops">Laptops</a>
+</div>
 
   </div>
+
+ 
 </header>
 
 <!-- ================= CATEGORIES ================= -->
 <section class="catagories-section">
   <div class="categories-container">
 
-    <a href="#" data-category="mobiles">
+    <a href="html/mobileAndTablet.html" >
       <img src="assets/images/iphone.jpg">
       <span>Mobiles</span>
     </a>
 
-    <a href="#" data-category="fashion">
+    <a href="html/fashion.html">
       <img src="assets/images/fashion.jpg">
       <span>Fashion</span>
     </a>
 
-    <a href="#" data-category="tv">
+    <a href="html/tvAppliances.html">
       <img src="assets/images/tv2.jpg">
       <span>TV & Appliances</span>
     </a>
 
-    <a href="#" data-category="home">
+    <a href="html/homeAndFurniture.html">
       <img src="assets/images/furniture.jpg">
       <span>Home</span>
     </a>
 
-    <a href="#" data-category="beauty">
+    <a href="html/beautyProduct.html">
       <img src="assets/images/makeup6.jpeg">
       <span>Beauty</span>
     </a>
 
-    <a href="#" data-category="grocery">
+    <a href="html/grocery.html">
       <img src="assets/images/Grocery2.jpg">
       <span>Grocery</span>
     </a>
 
-    <a href="#" data-category="sports">
+    <a href="html/sports.html">
       <img src="assets/images/sports1.jpg">
       <span>Sports</span>
     </a>
 
-    <a href="#" data-category="laptops">
+    <a href="html/laptops.html">
       <img src="assets/images/laptop.jpg">
       <span>Laptops</span>
     </a>
+    <a href="html/electronic.html">
+      <img src="assets/images/headphone.jpg">
+      <span>Electronics</span>
+    </a>
+    <a href="html/toys.html">
+      <img src="assets/images/toys.webp">
+      <span>Toys</span>
+      </a>
+
 
   </div>
 </section>
-
 <!-- ================= BANNER ================= -->
 <section class="flipkart-banner">
-  <img src="assets/images/banner1.webp" style="width:100%">
+  <div class="slider-container">
+    <div class="mySlides fade">
+      <img src="assets/images/banner1.webp" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="assets/images/banner2.webp" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="assets/images/banner3.webp" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="assets/images/banner4.webp" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="assets/images/banner5.webp" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="assets/images/banner6.webp" style="width:100%">
+    </div>
+
+    <!-- Previous & Next Buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+
+  <!-- Dots for slide indicators -->
+  <div class="dots-container">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+    <span class="dot" onclick="currentSlide(5)"></span>
+    <span class="dot" onclick="currentSlide(6)"></span>
+  </div>
 </section>
 
 <!-- ================= PRODUCTS ================= -->
@@ -129,6 +192,22 @@
     </select>
   </div>
 
+  <!-- Price range filter -->
+  <div class="range-container">
+    <label class="range-label">Filter by price</label>
+
+    <div class="range-slider-wrapper">
+      <input type="range" id="price-range" min="0" value="0">
+      <span class="range-bubble" id="rangeBubble">₹0</span>
+    </div>
+
+    <div class="range-values">
+      <div class="min-box">₹<input type="number" id="minInput" min="0" value="0"></div>
+      <div class="dash">-</div>
+      <div class="max-box">₹<input type="number" id="maxInput" min="0" value="0"></div>
+    </div>
+  </div>
+
   <!-- PRODUCT GRID (JS FILLS THIS) -->
   <div class="product-grid">
     <!-- Dynamic product cards from home.js -->
@@ -141,26 +220,40 @@
   <div class="footer-container">
 
     <div class="footer-section">
-      <img src="assets/images/logoname.png" width="120">
+      <img src="../assets/images/logoname.png" width="120" alt="Flipkart Logo">
       <p>India’s leading online shopping destination</p>
     </div>
 
     <div class="footer-section">
       <h3>About</h3>
+      <a href="#">Contact Us</a>
       <a href="#">About Us</a>
       <a href="#">Careers</a>
+      <a href="#">Flipkart Stories</a>
     </div>
 
     <div class="footer-section">
       <h3>Help</h3>
       <a href="#">Payments</a>
-      <a href="#">Returns</a>
+      <a href="#">Shipping</a>
+      <a href="#">Cancellation &amp; Returns</a>
+      <a href="#">FAQs</a>
     </div>
 
     <div class="footer-section">
       <h3>Policy</h3>
-      <a href="#">Privacy</a>
+      <a href="#">Return Policy</a>
+      <a href="#">Terms of Use</a>
       <a href="#">Security</a>
+      <a href="#">Privacy</a>
+    </div>
+
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
     </div>
 
   </div>

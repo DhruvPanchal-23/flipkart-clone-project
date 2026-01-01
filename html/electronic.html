@@ -19,34 +19,64 @@
 
     <!-- Logo -->
     <div class="logo">
-      <a href="index.html">
+      <a href="../index.html">
         <img src="../assets/images/logoname.png" alt="Flipkart">
       </a>
     </div>
 
     <!-- Search -->
     <div class="search-box">
-      <input type="text" placeholder="Search for products" />
-      <button>
+      <input type="text" placeholder="Search for products">
+      <button id="searchBtn">
         <span class="material-icons">search</span>
       </button>
     </div>
 
     <!-- Cart -->
     <div class="cart">
-      <a href="cart.html">
+      <a href="../cart.html">
         <span class="material-icons">shopping_cart</span>
         <span class="cart-count">0</span>
       </a>
     </div>
 
+    <!-- Address -->
+    <div class="address-link">
+      <span class="material-icons">location_on</span>
+      <span>Address</span>
+    </div>
+
     <!-- Login -->
     <div class="login-signup">
-      <a href="login.html">
-        <span class="material-icons">account_circle</span>
-        <span class="auth-text">Login</span>
-      </a>
+      <span class="material-icons">account_circle</span>
+      <span>Login</span>
     </div>
+
+    <!-- Hamburger -->
+    <div class="hamburger" id="hamburger">
+      <span class="material-icons">menu</span>
+    </div>
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Side Menu -->
+    <div class="side-menu" id="sideMenu">
+      <span class="material-icons close-btn" id="closeBtn">close</span>
+
+      <h3>Categories</h3>
+      <a href="../html/mobileAndTablet.html" data-category="mobiles">Mobiles & Tablets</a>
+      <a href="../html/fashion.html" data-category="fashion">Fashion</a>
+      <a href="../html/tvAppliances.html" data-category="tv">TV & Appliances</a>
+      <a href="../html/homeAndFurniture.html" data-category="home">Home & Furniture</a>
+      <a href="../html/beautyProduct.html" data-category="beauty">Beauty</a>
+      <a href="../html/grocery.html" data-category="grocery">Grocery</a>
+      <a href="../html/sports.html" data-category="sports">Sports</a>
+      <a href="../html/electronic.html" data-category="electronic">Electronics</a>
+      <a href="../html/toys.html" data-category="toys">Toys</a>
+      <a href="../html/laptops.html" data-category="laptops">Laptops</a>
+    </div>
+
+  </div>
 
 
 </header>
@@ -67,6 +97,23 @@
         <option value="name-a-z">Name: A to Z</option>
         <option value="name-z-a">Name: Z to A</option>
       </select>
+    </div>
+
+    
+    <!-- Price range filter -->
+    <div class="range-container">
+      <label class="range-label">Filter by price</label>
+
+      <div class="range-slider-wrapper">
+        <input type="range" id="price-range" min="0" value="0">
+        <span class="range-bubble" id="rangeBubble">₹0</span>
+      </div>
+
+      <div class="range-values">
+        <div class="min-box">₹<input type="number" id="minInput" min="0" value="0"></div>
+        <div class="dash">-</div>
+        <div class="max-box">₹<input type="number" id="maxInput" min="0" value="0"></div>
+      </div>
     </div>
 
     <div class="product-grid" data-category="electronic">
@@ -126,8 +173,8 @@
 
 <!-- ================= SCRIPTS ================= -->
 <script src="../js/data.js"></script>
-<script src="../js/home.js"></script>
 <script src="../js/user.js"></script>
+<script src="../js/category.js"></script>
 
 
 </body>

@@ -94,6 +94,21 @@ body {
 }
 
 /* Address Link */
+.address-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.address-link:hover {
+  opacity: 0.8;
+}
+
 .address-link a {
   display: flex;
   align-items: center;
@@ -387,6 +402,42 @@ body {
 }
 
 /*-----------------------------------FLIPKART BANNER CAROUSEL----------------------------------*/
+.flipkart-banner {
+  width: 90%;
+  max-width: 2000px;
+  margin: 16px auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.mySlides {
+  display: none;
+  width: 100%;
+}
+
+.mySlides img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.mySlides.fade {
+  animation: fade 1s;
+}
+
+@keyframes fade {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
 .slideshow-container {
   width: 90%;
   max-width: 2000px;
@@ -417,12 +468,25 @@ body {
   cursor: pointer;
   background: rgba(0,0,0,0.4);
   transform: translateY(-50%);
+  z-index: 100;
+  border: none;
+  user-select: none;
+}
+
+.prev:hover, .next:hover {
+  background: rgba(0,0,0,0.7);
 }
 
 .next { right: 0; }
 .prev { left: 0; }
 
 /* Dots */
+.dots-container {
+  text-align: center;
+  margin-top: 12px;
+  padding: 8px 0;
+}
+
 .dots {
   text-align: center;
   margin-top: 8px;
@@ -436,6 +500,11 @@ body {
   display: inline-block;
   margin: 0 4px;
   cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.dot:hover {
+  background: #888;
 }
 
 .dot.active {
@@ -484,6 +553,119 @@ body {
 .sorting-container select:focus {
   outline: none;
   border-color: #2874f0;
+}
+
+/* ---------------- PRICE RANGE STYLES ---------------- */
+.range-container {
+  margin: 12px 0 22px;
+  width: 100%;
+  max-width: 360px; /* reduced width */
+  background: #f7fbff;
+  border: 1px solid #e6f0ff;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+.range-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.range-slider-wrapper {
+  position: relative;
+  padding: 14px 0 6px;
+}
+
+.range-slider-wrapper input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px; /* slimmer track */
+  background: linear-gradient(90deg, #2874f0 0%, #bcd9ff 100%);
+  border-radius: 8px;
+  outline: none;
+}
+
+.range-slider-wrapper input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #2874f0;
+  box-shadow: 0 2px 6px rgba(40,116,240,0.18);
+  cursor: pointer;
+}
+
+.range-slider-wrapper input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #2874f0;
+  box-shadow: 0 2px 6px rgba(40,116,240,0.18);
+  cursor: pointer;
+}
+
+.range-bubble {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-50%);
+  background: #2874f0;
+  color: #fff;
+  padding: 6px 10px; /* smaller bubble */
+  border-radius: 16px;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.range-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: #2874f0 transparent transparent transparent;
+}
+
+.range-values {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.min-box, .max-box {
+  padding: 0; /* wrappers only */
+}
+
+.range-values input[type="number"] {
+  width: 90px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  font-weight: 600;
+  font-size: 13px;
+  -moz-appearance: textfield;
+}
+
+.range-values input[type="number"]::-webkit-outer-spin-button,
+.range-values input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.dash {
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .range-container { max-width: 100%; }
 }
 
 /* Grid */
@@ -622,6 +804,8 @@ body {
   font-size: 13px;
   color: #b0b0b0;
 }
+
+/* Footer remains static (not fixed) */
 
 /* Responsive */
 @media (max-width: 600px) {
