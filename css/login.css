@@ -301,6 +301,7 @@ body {
   background: #172337;
   color: #fff;
   padding: 40px 0 10px;
+  flex-shrink: 0;
 }
 
 .footer-container {

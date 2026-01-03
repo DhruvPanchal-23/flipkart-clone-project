@@ -6,10 +6,18 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   background-color: #f1f3f6;
-  color: #2e2e2e; 
+  color: #2e2e2e;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 70px;
 }
 
 /* --------------------------------------------Header--------------------------------------------------------------*/
@@ -760,6 +768,7 @@ body {
   color: #ffffff;
   font-family: Arial, sans-serif;
   margin-top: 40px;
+  flex-shrink: 0;
 }
 
 .footer-container {
@@ -805,7 +814,12 @@ body {
   color: #b0b0b0;
 }
 
-/* Footer remains static (not fixed) */
+/* MAIN CONTENT WRAPPER */
+main {
+  flex: 1;
+}
+
+/* FOOTER FLEXBOX */
 
 /* Responsive */
 @media (max-width: 600px) {
